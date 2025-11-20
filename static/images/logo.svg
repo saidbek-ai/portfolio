@@ -1,0 +1,48 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+>
+  <!-- Left brace -->
+  <text
+    x="12"
+    y="32"
+    font-family="Arial, sans-serif"
+    font-size="48"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-weight="700"
+    fill="#2563eb"
+  >
+    {
+  </text>
+
+  <!-- Big S -->
+  <text
+    x="32"
+    y="36"
+    font-family="Arial, sans-serif"
+    font-size="48"
+    font-weight="800"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    fill="#2563eb"
+  >
+    S
+  </text>
+
+  <!-- Right brace -->
+  <text
+    x="52"
+    y="32"
+    font-family="Arial, sans-serif"
+    font-size="48"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-weight="700"
+    fill="#2563eb"
+  >
+    }
+  </text>
+</svg>

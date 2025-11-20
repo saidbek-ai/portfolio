@@ -1,0 +1,34 @@
+{% extends "account/base_auth_layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl text-center max-w-md w-full relative overflow-hidden">
+
+  <!-- Lock Icon Background -->
+  <div class="absolute inset-0 opacity-10 flex justify-center items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-64 w-64 text-gray-300 dark:text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm6-10a4 4 0 00-8 0v2h8v-2z" />
+    </svg>
+  </div>
+
+  <h1 class="text-9xl font-extrabold text-yellow-500 dark:text-yellow-400 mb-4 animate-pulse relative z-10">403</h1>
+
+  <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-200 relative z-10">
+      Access Denied
+  </h2>
+
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 relative z-10">
+      You don’t have permission to view this page.<br>
+      It might be locked, private, or for admins only.
+  </p>
+
+  <a href="{% url 'home' %}"
+      class="relative z-10 inline-block px-8 py-4 bg-yellow-500 text-white font-semibold rounded-lg shadow-md
+            hover:bg-yellow-600 dark:bg-yellow-400 dark:hover:bg-yellow-500
+            focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-75
+            transition-all hover:scale-105 hover:shadow-lg">
+      Back to Safety
+  </a>
+</div>
+{% endblock content %}

@@ -1,0 +1,68 @@
+  {% load name_filters %}
+  {% load static %}    
+    {% load tz %}
+    {% load humanize %}
+    {% now "UTC" as current_time %}
+    
+    {% with  chat.user as chat_user  %}
+       <li class="chat_list_item" data-chat-id="{{chat.id}}">
+          <div hx-get="{% url 'chat:get_messages' chat_id=chat.id %}" hx-target="#admin-chat-box" hx-swap="innerHTML" class="w-full flex justify-between items-center gap-2 px-4 py-2 overflow-hidden transition-all duration-200 hover:bg-gray-200 dark:hover:bg-gray-700 border-b border-gray-100 dark:border-gray-600"
+          >
+            <div class="h-14 w-14 rounded-full flex shrink-0 justify-center items-center">
+      
+                {% if chat_user.image %}
+                  <img
+                    src="{{chat_user.image}}"
+                    alt="{{chat_user.first_name}}"
+                    class="w-full h-full rounded-full"
+                  />
+                {% else %}
+                  <div class="w-full h-full rounded-full  flex justify-center items-center bg-rose-400 text-white">
+                    <h3 class="uppercase font-bold tracking-tighter truncate">
+                      {{chat_user.first_name|first_char}}{{chat_user.last_name|first_char}}
+                    </h3>
+                  </div>
+                {% endif %}
+            </div>
+      
+            <div class="w-3/5 flex flex-col content-center truncate">
+              <h3
+                class="text-lg font-semibold transition-colors duration-200 truncate"
+              >
+                {{chat_user.first_name}} {{chat_user.last_name}}
+                
+              </h3>
+      
+              <p class="truncate text-sm text-slate-400">
+                {{chat.last_message.text}}
+              </p>
+            </div>
+      
+            <div class="w-1/5 h-12 flex flex-col justify-end items-end gap-1 ">
+              {% if chat.unread_count %}
+              <p
+                class="
+                text-xs py-0.5 px-1.5 rounded-full bg-slate-400 text-white dark:bg-slate-900 dark:text-slate-400"
+              >
+                {{chat.unread_count}}
+              </p>
+      
+              {% endif %}
+              
+              <p  class="chat-last_message text-xs text-slate-400 text-nowrap" data-date="{{ chat.last_message.created_at|date:'c' }}">
+                <!--last message datetime rendered with js for dynamic changing-->
+              </p>
+            </div>
+    
+          </div>
+
+        </li> 
+
+    {% endwith %}
+
+    <script>
+
+
+
+      
+    </script>

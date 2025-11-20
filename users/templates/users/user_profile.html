@@ -1,0 +1,244 @@
+{% extends "layout.html" %} {% load static %} {% load i18n %} {% load account socialaccount %} {% block title %} User
+Account {%endblock title %} {% block meta %}
+<meta name="robot" content="noindex, nofollow" />
+{% endblock meta %} {% block content %}
+<div class="max-w-5xl mx-auto p-6 md:p-10">
+  <!-- User Profile Header Card -->
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden mb-8 transition-colors duration-500">
+    <div class="p-4 sm:p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+      <div class="flex-shrink-0">
+        <div
+          class="w-32 h-32 rounded-full overflow-hidden {% if user.image %} border-4 border-blue-500 dark:border-blue-500 {% endif %}"
+        >
+          {% if user.image %}
+          <img src="{{user.image.url}}" alt="Profile Picture" id="avatar" class=" w-full h-full object-cover " />
+          {% else %}
+          <div id="no-avatar-frame" class="w-32 h-32 w-full h-full flex justify-center items-center">
+            <span id="user-initials" class="text-5xl font-semibold text-white "></span>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="text-center md:text-left">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+          {{user.first_name|default_if_none:''}} {{user.last_name|default_if_none:''}}
+        </h1>
+        <p class="text-xl text-blue-600 dark:text-blue-400 mt-1 font-semibold">
+          {{user.organisation|default_if_none:''}}
+        </p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-4">
+          <a
+            href="{% url 'users:edit_profile' %}"
+            class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+          >
+            Edit Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden mb-8 p-8 transition-colors duration-500">
+    <!-- Account Info -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+        <svg
+          class="h-5 w-5 text-blue-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776"
+          />
+        </svg>
+
+        Account Information
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+        <div class="bg-gray-100 dark:bg-gray-700/60 p-4 rounded-xl">
+          <p class="font-medium text-gray-600 dark:text-gray-300">Email</p>
+          <p class="text-gray-900 dark:text-white">{{ user.email }}</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700/60 p-4 rounded-xl">
+          <p class="font-medium text-gray-600 dark:text-gray-300">Username</p>
+          <p class="text-gray-900 dark:text-white">{{ user.username }}</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700/60 p-4 rounded-xl sm:col-span-2">
+          <p class="font-medium text-gray-600 dark:text-gray-300">Full Name</p>
+          <p class="text-gray-900 dark:text-white">{{ user.first_name }} {{ user.last_name }}</p>
+        </div>
+        {% if user.bio %}
+        <div class="bg-gray-100 dark:bg-gray-700/60 p-4 rounded-xl sm:col-span-2">
+          <p class="font-medium text-gray-600 dark:text-gray-300">Bio</p>
+          <p class="text-gray-900 dark:text-white">{{ user.bio }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <!-- Password Section -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+        <svg
+          class="h-5 h-5 text-blue-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
+          />
+        </svg>
+
+        Password Management
+      </h2>
+      <form method="post" action="{% url 'account_change_password' %}" class="space-y-4">
+        {% csrf_token %} {% comment %}
+        <div class="grid gap-3">{{ password_form.as_p }}</div>
+        {% endcomment %} {% if not user.has_usable_password%}
+        <div
+          class="bg-yellow-100 dark:bg-yellow-900 border border-yellow-400 text-yellow-700 dark:text-yellow-200 text-sm px-4 py-3 rounded-lg relative mb-6"
+          role="alert"
+        >
+          <strong class="font-bold">{% trans "Warning: " %}</strong>
+          <span class="block mt-1 sm:inline">
+            You signed up via social media platform! Please set password to provide account safety!
+          </span>
+        </div>
+        {% endif %}
+        <button
+          type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+        >
+          {% if user.has_usable_password %}Change Password{% else %}Set Password{% endif %}
+        </button>
+      </form>
+    </section>
+
+    <!-- Social Accounts Section -->
+    <section>
+      {% if connected_accounts %}
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+        <svg
+          class="h-5 w-5 text-blue-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"
+          />
+        </svg>
+
+        Connected Accounts
+      </h2>
+
+      <ul class="mb-6 space-y-3 flex flex-wrap gap-4">
+        {% for account in connected_accounts %}
+        <li
+          class="flex items-center justify-between p-4 bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-700 dark:to-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all"
+        >
+          <div class="flex items-center gap-3">
+            <!-- Social Icon -->
+            {% if account == "google" %}
+            <!--Google icon-->
+            <svg class="w-6 h-6" viewBox="0 0 48 48">
+              <path
+                fill="#EA4335"
+                d="M24 9.5c3.94 0 6.62 1.69 8.14 3.11l6.01-6.01C34.89 3.15 29.92 1 24 1 14.61 1 6.52 6.58 2.72 14.25l7.9 6.15C12.12 14.64 17.56 9.5 24 9.5z"
+              />
+              <path
+                fill="#34A853"
+                d="M46.1 24.5c0-1.58-.15-3.09-.43-4.55H24v9.11h12.48c-.54 2.88-2.15 5.34-4.5 7.01l7.07 5.49C43.81 37.46 46.1 31.48 46.1 24.5z"
+              />
+              <path
+                fill="#4A90E2"
+                d="M24 48c6.48 0 11.92-2.16 15.9-5.88l-7.07-5.49C30.56 38.47 27.48 39.5 24 39.5c-6.44 0-11.88-5.14-13.38-11.9l-7.9 6.15C6.52 41.42 14.61 48 24 48z"
+              />
+              <path
+                fill="#FBBC05"
+                d="M10.62 27.6a14.93 14.93 0 0 1 0-7.2l-7.9-6.15A23.92 23.92 0 0 0 0 24c0 3.91.92 7.61 2.72 10.75l7.9-7.15z"
+              />
+            </svg>
+
+            {% elif account == "github" %}
+            <!--Github icon-->
+            <svg class="w-6 h-6 text-gray-800 dark:text-gray-100" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.795-.262.795-.578v-2.233c-3.337.726-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.086-.742.083-.728.083-.728 1.202.086 1.83.618 1.83.618 1.067 1.82 2.802 1.294 3.486.99.107-.769.418-1.293.761-1.594-2.665-.305-5.466-1.334-5.466-5.931 0-1.309.467-2.377 1.233-3.219-.125-.304-.536-1.523.117-3.175 0 0 1.008-.323 3.301 1.23A11.48 11.48 0 0 1 12 5.802a11.49 11.49 0 0 1 3.003.404c2.293-1.553 3.301-1.23 3.301-1.23.653 1.652.243 2.871.118 3.175.766.842 1.232 1.91 1.232 3.219 0 4.609-2.802 5.626-5.479 5.931.43.369.823 1.107.823 2.221v3.293c0 .319.192.693.801.576C20.565 21.797 24 17.303 24 12c0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+            {% elif account == "telegram" %} Telegram {% else %} account {% endif %}
+
+            <div>
+              <p class="font-medium text-gray-900 dark:text-gray-100 capitalize">{{ account }}</p>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% if available_providers %}
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+        <svg
+          class="h-5 w-5 text-blue-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        Connect Accounts
+      </h2>
+      <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+        {% for provider in available_providers %}
+        <a
+          href="{% provider_login_url provider.id process='connect' %}"
+          class="flex items-center justify-center sm:justify-start gap-2 px-5 py-2.5 bg-blue-50 dark:bg-gray-700/60 hover:bg-blue-600 hover:text-white text-blue-700 dark:text-gray-100 rounded-lg font-medium shadow-sm transition-all duration-200"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+          Connect {{ provider.name }}
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </section>
+  </div>
+</div>
+
+{% endblock %} {% block script %}
+<script type="module">
+
+  {% if not user.image %}
+    import { generateUserImage } from "{% static "js/utils.js" %}"
+    const fName = '{{user.first_name | escapejs}}';
+    const lName = '{{user.last_name | escapejs}}';
+
+    const {userInitials, bgColor} = generateUserImage(fName, lName);
+
+    console.log(userInitials, bgColor)
+
+    const noAvatarFrame = document.getElementById("no-avatar-frame");
+    const userInitialsEl = document.getElementById("user-initials");
+    noAvatarFrame.style.backgroundColor = bgColor.hex;
+    userInitialsEl.textContent = userInitials;
+  {% endif %}
+</script>
+{% comment %} <script type="module" src="{% static "js/user_profile.js" %}"> {% endcomment %} {% endblock script %}

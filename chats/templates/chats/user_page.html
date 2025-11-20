@@ -1,0 +1,66 @@
+{% extends "chats/base.html" %}
+{% load tz %}
+{% load humanize %}
+{% now "UTC" as current_time %}
+
+{% block main %}
+  
+  <!-- Main Chat Area -->
+  <main class="flex flex-col bg-white dark:bg-gray-900 p-4 max-h-screen overflow-hidden h-screen w-full flex-1">
+          <!-- Chat Header -->
+    <div class="w-full max-w-4xl mx-auto flex items-center space-x-4 border-b border-gray-300 dark:border-gray-700 pb-3 mb-4">
+      <a href="{% url 'home' %}"  class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      Back
+      </a> 
+      <div>
+        <h3 class="text-lg text-center font-semibold text-gray-800 dark:text-gray-200">
+              Live Chat
+        </h3>
+      </div>
+    </div>
+
+        <!-- Message Thread -->
+    <div hx-get="{% url 'chat:get_messages' chat.id %}" hx-swap="innerHTML" hx-trigger="load" hx-target="#message-thread" id="message-thread" class="hide-scrollbar overflow-y-auto space-y-3 mb-4 w-full max-w-4xl mx-auto h-full grow">
+      <p class="text-center">Loading...</p>
+    </div>
+    
+      <form 
+        method="POST"
+        hx-post="{% url 'chat:user_chat' %}"
+        hx-target="#message-thread"
+        hx-swap="beforeend"
+        enctype="multipart/form-data" class="w-full max-w-4xl mx-auto flex items-end gap-2 border-t border-gray-300 pt-3 shrink" >
+      {% csrf_token %}
+      <input type="hidden" name="chat_id" value={{my_chat.id}}>
+      {{form.text}}
+          
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+        Send
+      </button> 
+    </form>
+  </main> 
+{% endblock %}
+
+{% block javascript %}
+  <script>
+
+    document.body.addEventListener('htmx:afterRequest', (e) => {
+      if (e.target.tagName === 'FORM') {
+        const input = document.querySelector('textarea[name="text"]');
+        if (input) input.value = "";
+        input.focus();
+      }
+    });
+
+
+    function scrollToBottom() {
+        const container = document.getElementById("message-thread");
+        container.scrollTop = container?.scrollHeight;
+    }
+    scrollToBottom();
+
+  </script>
+{% endblock javascript %}

@@ -1,0 +1,86 @@
+{% extends "layout.html" %} {% load static %} {% load i18n %} {% block title %}{{ blog.title }}{% endblock title %}
+
+<!-- SEO Meta tags -->
+{% block meta %}
+<!-- Primary Meta Tags -->
+<meta name="description" content="{{ blog.excerpt|truncatechars:160 }}" />
+
+<!-- Open Graph (Social Preview) -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ blog.title }}" />
+<meta property="og:description" content="{{ blog.excerpt|truncatechars:160 }}" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+
+{% if blog.image %}
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ blog.image.url }}" />
+{% else %}
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}" />
+{% endif %}
+
+<meta property="og:site_name" content="Saidbek Khudayberdiev Portfolio" />
+
+<!-- Optional: Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ blog.title }}" />
+<meta name="twitter:description" content="{{ blog.excerpt|truncatechars:160 }}" />
+
+{% if blog.image %}
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ blog.image.url }}" />
+{% else %}
+<meta
+  name="twitter:image"
+  content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}"
+/>
+{% endif %}
+
+<!-- Structured data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ blog.title|escapejs }}",
+    "description": "{{ blog.excerpt|escapejs }}",
+    "image": "{% if blog.image %}{{ request.scheme }}://{{ request.get_host }}{{ blog.image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "Saidbek Khudayberdiev"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Saidbek Khudayberdiev Portfolio app",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo-wolf.svg' %}"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ request.build_absolute_uri }}"
+    },
+    "datePublished": "{{ blog.created_at|date:'c' }}"
+  }
+</script>
+{% endblock meta %} {% block content %}
+<div class="max-w-4xl mx-auto p-6 prose prose-slate dark:prose-invert">
+
+    <img
+      src="{% if blog.cover_image %}{{blog.cover_image.url}}{% else %}{% static 'images/default_cover_image.webp' %}{% endif %}"
+      alt="{{ project.title }}"
+      class="rounded-lg my-6 w-full md:h-72 object-cover"
+      loading="lazy"
+    />
+
+  <h1 class="text-2xl sm:text-3xl lg:text-4xl lg:mt-4">{{ blog.title }}</h1>
+
+  {% if blog.tags.names %}
+    <div class="flex flex-wrap gap-2 mt-4">
+      {% for tag_name in blog.tags.names  %}
+        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium px-2 py-1 rounded-full">{{tag_name}}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+
+  <div class="w-full">{{ blog.rendered_content|safe }}</div>
+</div>
+{% endblock %}

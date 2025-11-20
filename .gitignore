@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+*.sqlite3
+/media/
+staticfiles/
+
+# Environment
+.env
+venv/
+env/
+.venv/
+
+# VSCode
+.vscode/
+
+# Redis cache
+dump.rdb
+
+# Mac / Windows
+.DS_Store
+Thumbs.db
+
+# Node.js / React tailwind cli 
+tailwind/
+celerybeat-schedule**
+

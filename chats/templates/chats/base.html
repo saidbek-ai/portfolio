@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saidbek | Admin Live Chat</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="{% static 'js/htmx.min.js'%}"></script>
+
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen h-full flex w-full justify-center items-center gap-4">
+
+  {% block sidebar %}{% endblock sidebar %}
+  {% block main %}{% endblock main %}
+
+  
+  
+   {% comment %} Date Time updater {% endcomment %}
+  <script src="https://cdn.jsdelivr.net/npm/dayjs/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs/plugin/relativeTime.js"></script>
+
+  <script>
+    dayjs.extend(dayjs_plugin_relativeTime);
+  </script>
+
+  <script type="module" src="{% static 'js/chat.js'%}"></script> 
+  <script defer>
+    // Auto resizer of Text_area
+    function autoResize(textarea) {
+        textarea.style.height = 'auto'; // reset height
+        const maxHeight = 4 * 24; // 4 lines * 24px line height (adjust as needed)
+        textarea.style.height = Math.min(textarea.scrollHeight, maxHeight) + 'px';
+    } 
+
+  </script>
+
+
+  {% block javascript %}{% endblock javascript %}
+
+  
+</body>
+</html>

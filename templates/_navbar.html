@@ -1,0 +1,228 @@
+{% load static %}
+
+<header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+      <nav
+        class="shadow-sm bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700"
+      >
+        <div
+          class="flex justify-between items-center max-w-7xl w-full px-4 md:px-6 lg:px-8 mx-auto py-3"
+        >
+        <div class="flex justify-center items-center gap-2">
+
+          <!-- Mobile hamburger -->
+            <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-gray-100 "
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+
+          <!-- Brand -->
+          <a
+            href="{% url 'home' %}"
+            class="hidden sm:inline text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-100"
+          >
+           Saidbek.dev
+          </a>
+        </div>
+
+          <!-- Desktop links (public / portfolio) -->
+          <div class="hidden md:flex space-x-6">
+            
+            <a
+              href="{% url 'projects:projects_list' %}"
+              class="text-base font-medium hover:text-blue-600"
+              >Projects</a
+            >
+            <a href="/blogs" class="text-base font-medium hover:text-blue-600"
+              >Blogs</a
+            >
+            <a href="{% url 'faq'%}" class="text-base font-medium hover:text-blue-600"
+              >FAQ</a
+            >
+            
+          </div>
+
+          <!-- Right side actions (auth-required icons) -->
+          <div class="flex items-center space-x-2">
+            <!-- Dark/Light mode -->
+            <button
+              id="theme-toggle-btn"
+              class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+
+              <!-- Moon icon (dark mode default) -->
+              <svg id="moon-icon" 
+                  class="hidden w-6 h-6 text-gray-700 dark:text-gray-200" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" 
+                      d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+              </svg>
+
+              <!-- Sun icon (light mode default hidden) -->
+              <svg id="sun-icon" 
+                  class="hidden w-6 h-6 text-yellow-500 dark:text-yellow-300" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                <circle cx="12" cy="12" r="4" />
+                <path stroke-linecap="round" stroke-linejoin="round" 
+                      d="M12 2v2m0 16v2m10-10h-2M4 12H2m16.95-6.95l-1.414 1.414M6.464 17.536l-1.414 1.414M17.536 17.536l1.414 1.414M6.464 6.464 5.05 5.05" />
+              </svg>
+              
+            </button>
+
+            {% if user.is_authenticated %}
+            <!-- Messages -->
+              {% comment %} <div class="relative hidden"> {% endcomment %}
+
+              <button id="chat_link_err" class="hidden p-2 rounded-lg text-red-500 hover:bg-red-100 dark:text-red-400 dark:hover:bg-red-400 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                </svg>
+              </button>
+              <a
+                href="{% url "chat:chat_page" %}"
+                id="chat_nav_link"
+                class="relative p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                <!--Unread msg badge-->
+                <span
+                  id="unread_msg_count"
+                  class="absolute -top-0.5 -right-0.5 text-[10px] px-1.5 rounded-full bg-red-600 text-white"
+                  ></span
+                >
+                <svg
+                  class="w-6 h-6 text-gray-700 dark:text-gray-100"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+              </a>
+              <!-- User menu (Profile / Logout dropdown) -->
+              <div class="relative">
+                <button
+                  id="userMenuBtn"
+                  class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  <svg
+                    class="w-6 h-6 text-gray-700 dark:text-gray-100"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6H4z" />
+                  </svg>
+                </button>
+                <!-- Dropdown -->
+                <div
+                  id="userMenu"
+                  class="hidden absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden"
+                >
+                  {% if user.is_authenticated and user.is_staff %}
+
+                    <a
+                      href="/admin"
+                      class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >Dashboard</a
+                    >
+                    <button disabled class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 w-full text-start" >
+                      Settings
+                    </button>
+                  {% else %}
+
+                  <a
+                    href="{% url "users:user_profile" %}"
+                    class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >
+                    Profile
+                  </a> 
+
+                  {% endif %}
+
+                  <!--Logout Btn-->
+                  <form method="post" action="{% url 'account_logout' %}" class="w-full h-full">
+                    {% csrf_token %}
+                    <button type="submit" class="w-full px-4 py-2 text-sm text-start text-red-600 hover:bg-red-50 dark:hover:bg-red-700 dark:text-red-500 dark:hover:text-red-100">
+                      Logout
+                    </button>
+                  </form>
+
+                </div>
+              </div>
+
+            {% else %}
+              <a
+                href="{% url 'account_login' %}"
+                class="px-4 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700"
+              >
+                Login
+              </a>            
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Mobile menu (hidden by default) -->
+        <div
+          id="mobileMenu"
+          class="hidden md:hidden px-6 pb-4 flex flex-col space-y-3"
+        >
+          <a href="{% url 'home' %}" class="inline sm:hidden hover:text-blue-600 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+
+            Home
+          </a>
+          <a href="{% url 'projects:projects_list' %}" class="hover:text-blue-600 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M3 7a2 2 0 012-2h5l2 2h7a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
+            </svg>
+          Projects
+          </a>
+          <a href="{% url 'blogs:blog_list'%}" class="hover:text-blue-600 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 8H7m0 4h10m-10 4h7" />
+            </svg>
+            Blogs
+          </a>
+          <a href="/faq" class="hover:text-blue-600 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+            </svg>
+            FAQ
+          </a>
+          
+          {% comment %} <a href="/logout" class="text-red-500 hover:text-red-600 flex items-center gap-2">
+            <!-- Logout Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                  stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" 
+                      d="M15 12H3m0 0l4-4m-4 4l4 4m6-8v2a2 2 0 002 2h3m-5 0h5m0 0v4a2 2 0 01-2 2h-3m5 0H15" />
+              </svg>
+
+            Logout
+          </a> {% endcomment %}
+        </div>
+      </nav>
+    </header>
+
+  <script src="{% static 'js/navbar.js' %}"></script> 

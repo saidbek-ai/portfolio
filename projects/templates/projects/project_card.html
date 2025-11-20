@@ -1,0 +1,41 @@
+{% load static %} {% load i18n %}
+
+<div
+  onclick="window.location.href='{% url 'projects:project_detail' slug=project.slug %}'"
+  class="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group w-full"
+>
+  <!-- Image (Fixed height, dynamic width) -->
+  <div class="h-48 overflow-hidden block">
+    <img
+      {% comment %} src="{{ project.cover_image.url }}" {% endcomment %}
+      src="{% if project.cover_image %}{{project.cover_image.url}}{% else %}{% static 'images/default-thumbnail.webp' %}{% endif %}"
+      alt="{{ project.title }}"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-2xl"
+    />
+  </div>
+
+  <!-- Title and Buttons -->
+  <div class="p-4 flex flex-col justify-between gap-3">
+    <h3 class="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2" title="{{ project.title }}">
+      {{ project.title }}
+    </h3>
+
+    <div class="flex gap-2">
+      {% if project.demo_url %}
+      <button
+        onclick="event.stopPropagation(); window.open('{{project.demo_url}}', '_blank');"
+        class="flex-1 text-center text-sm font-medium px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+      >
+        Live Demo
+      </button>
+      {% endif %} {% if project.source_code %}
+      <button
+        onclick="event.stopPropagation(); window.open('{{project.source_code}}', '_blank');"
+        class="flex-1 text-center text-sm font-medium px-4 py-2 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg transition"
+      >
+        Source
+      </button>
+      {% endif %}
+    </div>
+  </div>
+</div>

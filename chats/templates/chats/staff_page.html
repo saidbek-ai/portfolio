@@ -1,0 +1,178 @@
+{% extends "chats/base.html" %}
+{% load static %}
+{% load name_filters %}
+{% load tz %}
+{% load humanize %}
+{% now "UTC" as current_time %}
+
+{% block sidebar %}
+  <!-- Sidebar: Chat List -->
+  <div class="w-1/3 max-w-sm h-screen overflow-y-auto border-r border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800">
+    <h2 class="text-xl font-semibold p-4 border-b border-gray-200 dark:border-gray-600 dark:text-white">User Chats</h2>
+    <ul class="flex-1 overflow-hidden overflow-y-auto hide-scrollbar">
+      {% for chat in chats %}
+
+      {% with  chat.user as chat_user  %}
+       <li class="chat_list_item" id="msg-{{chat.id}}">
+          <div hx-get="{% url 'chat:get_messages' chat_id=chat.id %}" hx-target="#admin-chat-box" hx-swap="innerHTML" class="w-full flex justify-between items-center gap-2 px-4 py-2 overflow-hidden transition-all duration-200 hover:bg-gray-200 dark:hover:bg-gray-700 border-b border-gray-100 dark:border-gray-600"
+          >
+            <div class="h-14 w-14 rounded-full flex shrink-0 justify-center items-center">
+      
+                {% if chat_user.image %}
+                  <img
+                    src="{{chat_user.image}}"
+                    alt="{{chat_user.first_name}}"
+                    class="w-full h-full rounded-full"
+                  />
+                {% else %}
+                  <div class="w-full h-full rounded-full  flex justify-center items-center bg-rose-400 text-white">
+                    <h3 class="uppercase font-bold tracking-tighter truncate">
+                      {{chat_user.first_name|first_char}}{{chat_user.last_name|first_char}}
+                    </h3>
+                  </div>
+                {% endif %}
+            </div>
+      
+            <div class="w-3/5 flex flex-col content-center truncate">
+              <h3
+                class="text-lg font-semibold transition-colors duration-200 truncate"
+              >
+                {{chat_user.first_name}} {{chat_user.last_name}}
+                
+              </h3>
+      
+              <p class="truncate text-sm text-slate-400">
+                {{chat.last_message.text}}
+              </p>
+            </div>
+      
+            <div class="w-1/5 h-12 flex flex-col justify-end items-end gap-1 ">
+              {% if chat.unread_count %}
+              <p
+                class="
+                text-xs py-0.5 px-1.5 rounded-full bg-slate-400 text-white dark:bg-slate-900 dark:text-slate-400"
+              >
+                {{chat.unread_count}}
+              </p>
+      
+              {% endif %}
+              
+              <p class="chat-last_message text-xs text-slate-400 text-nowrap">
+                {% if chat.last_message %}
+                  {{ chat.last_message.created_at|date:'c' }}
+                {% else %}
+                  
+                {% endif %}
+              </p>
+            </div>
+    
+          </div>
+
+        </li> 
+
+      {% endwith %}
+
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock sidebar %}
+
+{% block main %}
+<div class="max-w-4xl w-full flex flex-col h-screen bg-gray-100 dark:bg-gray-900 overflow-hidden">
+
+  <!-- Main Chat Box -->
+  <div id="admin-chat-box" class="flex-1 flex flex-col justify-between overflow-y-auto">
+    {% include "chats/partials/_staff_conversation.html" %}
+  </div>
+
+    <!-- Send Message Form -->
+    <form 
+      method="POST" 
+      hx-post="{% url 'chat:staff_chat' %}"
+      hx-target="#message-thread"
+      hx-swap="beforeend"
+      class="w-full flex items-center gap-2 p-4 border-t border-gray-300 dark:border-gray-700 shrink "
+      enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="hidden" name="chat_id" id="chat-id-field">
+      {{ form.text }}
+      <button 
+        type="submit"
+        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+        Send
+      </button>
+    </form>
+</div>
+{% endblock main%}
+
+{% block javascript %}
+
+  <script>
+    // Update time
+    function updateTimestamps(className) {
+      document.querySelector(`.${className}`).forEach(el => {
+        const timeStr = el.dataset.time;
+        const time = dayjs(timeStr);
+        el.textContent = time.fromNow();
+      })
+    }
+
+    updateTimestamps("chat-last_message");
+    setInterval(updateTimestamps, 60000) // Update every 1 minute
+  </script>
+
+  <script>
+    
+
+    document.body.addEventListener('htmx:afterRequest', (e) => {
+      if (e.target.tagName === 'FORM') {
+        const input = document.querySelector('textarea[name="text"]');
+        if (input) input.value = "";
+        input.focus();
+      }
+    });
+
+
+
+    // Update hidden chat_id field and add active state to chat_list_items when selecting a chat
+
+    let selectedChatId;
+
+    document.body.addEventListener('htmx:beforeOnLoad', (e) => {
+      const chatIdFromURL = e.detail?.pathInfo?.responsePath?.match(/\d+/);
+
+      if (chatIdFromURL) {
+        document.getElementById('chat-id-field').value = chatIdFromURL[0];
+      }
+
+      selectedChatId = chatIdFromURL;
+
+    });
+
+    console.log(selectedChatId)
+
+    chats = document.querySelectorAll(".chat_list_item")
+
+    console.log(chats)
+    
+
+    
+
+
+    
+
+    // Scroll to bottom when new message comes
+    function scrollToBottom() {
+        const container = document.getElementById("message-thread");
+        container.scrollTop = container?.scrollHeight;
+    }
+    scrollToBottom();
+
+
+    
+
+
+
+
+  </script>
+{% endblock javascript %}

@@ -1,0 +1,23 @@
+{% if selected_chat %}
+      <!-- Chat Header -->
+  <div id="selected_chat" data-chat-id="{{selected_chat.id}}" class="flex items-center space-x-4 border-b border-gray-300 dark:border-gray-700 pb-3 mb-4">
+        <img src="{{ selected_chat.user.profile.image.url|default:'/static/default.png' }}"
+             alt="Avatar" class="w-10 h-10 rounded-full object-cover" />
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+            {{ selected_chat.user.get_full_name }}
+          </h3>
+          <p class="text-xs text-gray-500">Chat ID: {{ selected_chat.id }}</p>
+        </div>
+  </div>
+
+      <!-- Message Thread -->
+  <div id="message-thread" class="hide-scrollbar flex-1 overflow-y-auto space-y-3 mb-4 justify-end">
+        {% include 'chats/partials/_messages_list.html' %}
+  </div>
+
+
+{% else %}
+      <p class="text-center text-gray-500">Select a chat to begin.</p>
+{% endif %}
+

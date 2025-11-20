@@ -1,0 +1,1402 @@
+[
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Hey there! How's it going?",
+    "created_at": "2024-06-12T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Hi! I'm doing well, thanks. Just working on some projects.",
+    "created_at": "2024-06-12T10:01:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Nice! Anything exciting happening?",
+    "created_at": "2024-06-12T10:03:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Just typical dev stuff, lots of debugging haha. How about you?",
+    "created_at": "2024-06-12T10:04:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Same here! Thinking about going for a run later.",
+    "created_at": "2024-06-12T10:06:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Sounds good! It's a nice day for it.",
+    "created_at": "2024-06-13T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Yeah, trying to stay active. Did you catch that new movie last night?",
+    "created_at": "2024-06-13T11:01:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Oh, no, I missed it! Was it any good?",
+    "created_at": "2024-06-13T11:03:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "It was surprisingly entertaining! Definitely recommend it.",
+    "created_at": "2024-06-13T11:04:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "I'll add it to my list then. Thanks for the tip!",
+    "created_at": "2024-06-13T11:05:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "No problem! Any plans for the weekend?",
+    "created_at": "2024-06-14T09:30:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Not really, just taking it easy. Maybe some gaming.",
+    "created_at": "2024-06-14T09:31:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Sounds like a plan! I might hit up a local market.",
+    "created_at": "2024-06-14T09:32:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Oh, that's cool. Looking for anything specific?",
+    "created_at": "2024-06-14T09:33:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Just Browse for some fresh produce and maybe unique crafts.",
+    "created_at": "2024-06-14T09:35:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Hope you find something great!",
+    "created_at": "2024-06-15T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Thanks! You too, have a relaxing weekend.",
+    "created_at": "2024-06-15T14:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "You too! Talk soon.",
+    "created_at": "2024-06-15T14:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Just finished my run, feeling good!",
+    "created_at": "2024-06-16T08:30:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Awesome! I'm still debating if I should hit the gym.",
+    "created_at": "2024-06-16T08:31:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Go for it! You won't regret it.",
+    "created_at": "2024-06-16T08:32:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "You're right, I probably should. Thanks for the motivation!",
+    "created_at": "2024-06-16T08:33:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Anytime! Let me know how it goes.",
+    "created_at": "2024-06-17T17:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "It was a good workout! Feeling much better.",
+    "created_at": "2024-06-17T17:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Glad to hear it! Productive day all around then.",
+    "created_at": "2024-06-17T17:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Definitely. What's on your agenda for tomorrow?",
+    "created_at": "2024-06-17T17:03:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Meetings, mostly. And trying to finish up that report.",
+    "created_at": "2024-06-18T09:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Good luck with the report! You've got this.",
+    "created_at": "2024-06-18T09:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Thanks! I appreciate that. Hopefully it goes smoothly.",
+    "created_at": "2024-06-18T09:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "I'm sure it will. Don't stress too much.",
+    "created_at": "2024-06-18T09:03:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Trying not to! Any exciting tech news you've come across?",
+    "created_at": "2024-06-19T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Not really, just saw a new framework release. Might check it out.",
+    "created_at": "2024-06-19T10:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Oh, really? Which one? Always looking for new tools.",
+    "created_at": "2024-06-19T10:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "It's called 'QuantumUI'. Looks promising for front-end.",
+    "created_at": "2024-06-19T10:03:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Interesting name! I'll definitely take a look. Thanks for sharing!",
+    "created_at": "2024-06-19T10:05:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "No problem! Let me know what you think if you try it.",
+    "created_at": "2024-06-20T11:30:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Will do! Have a good one.",
+    "created_at": "2024-06-20T11:31:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "You too!",
+    "created_at": "2024-06-20T11:32:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Just remembered something important for our project. Can we sync up tomorrow?",
+    "created_at": "2024-06-21T15:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Sure, sounds good. What time works for you?",
+    "created_at": "2024-06-21T15:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "How about 10 AM? I'll send a calendar invite.",
+    "created_at": "2024-06-21T15:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Perfect, I'll be there. Thanks!",
+    "created_at": "2024-06-21T15:03:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "See you then!",
+    "created_at": "2024-06-22T08:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Morning! Ready for our sync?",
+    "created_at": "2024-06-22T09:59:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Yep, just logging on now. See you in a minute.",
+    "created_at": "2024-06-22T09:59:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Sounds good!",
+    "created_at": "2024-06-23T12:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "That meeting was productive. Good insights!",
+    "created_at": "2024-06-23T13:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Agreed! I think we have a clear path forward now.",
+    "created_at": "2024-06-23T13:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Definitely. Time to put those plans into action!",
+    "created_at": "2024-06-23T13:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Let's do it!",
+    "created_at": "2024-06-24T16:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Just checking in on the progress. All good?",
+    "created_at": "2024-06-24T16:01:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Yep, on track! How about your end?",
+    "created_at": "2024-06-24T16:02:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Smooth sailing here too. Looks like we're in good shape.",
+    "created_at": "2024-06-24T16:03:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Excellent! Keep up the great work.",
+    "created_at": "2024-06-25T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "You too! Talk later.",
+    "created_at": "2024-06-25T10:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Catch ya.",
+    "created_at": "2024-06-25T10:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Did you see the weather forecast? Looks like a perfect weekend ahead!",
+    "created_at": "2024-06-26T14:30:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Oh, nice! I hadn't checked. Good to know!",
+    "created_at": "2024-06-26T14:31:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Might go hiking if it stays this way.",
+    "created_at": "2024-06-26T14:32:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Sounds like fun! Enjoy it.",
+    "created_at": "2024-06-26T14:33:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Thanks! You too, whatever your plans are.",
+    "created_at": "2024-06-27T09:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Thinking about a chill day at home.",
+    "created_at": "2024-06-27T09:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Sometimes that's exactly what you need!",
+    "created_at": "2024-06-27T09:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Couldn't agree more.",
+    "created_at": "2024-06-27T09:03:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Hey, quick question about the data structure we discussed.",
+    "created_at": "2024-06-28T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Sure, what's up?",
+    "created_at": "2024-06-28T11:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "I was wondering if we should flatten the nested array here or keep it as is.",
+    "created_at": "2024-06-28T11:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Hmm, for readability, flattening might be better in this case.",
+    "created_at": "2024-06-28T11:03:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "That's what I was thinking too. Thanks for confirming!",
+    "created_at": "2024-06-29T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "No problem! Always good to get a second opinion.",
+    "created_at": "2024-06-29T10:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Agreed!",
+    "created_at": "2024-06-29T10:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Have a great weekend!",
+    "created_at": "2024-06-30T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "You too! Enjoy.",
+    "created_at": "2024-06-30T14:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Thanks!",
+    "created_at": "2024-07-01T09:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Back to work! Hope you had a good break.",
+    "created_at": "2024-07-01T09:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "I did, thanks! Ready to tackle the week.",
+    "created_at": "2024-07-01T09:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "That's the spirit!",
+    "created_at": "2024-07-02T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Just wanted to share an interesting article I read.",
+    "created_at": "2024-07-02T10:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Oh, send it over! Always looking for good reads.",
+    "created_at": "2024-07-02T10:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Sent! It's about optimizing database queries.",
+    "created_at": "2024-07-02T10:03:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Perfect! That's exactly what I need right now. Thanks!",
+    "created_at": "2024-07-03T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "You're welcome. Hope it helps!",
+    "created_at": "2024-07-03T11:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "I'm sure it will.",
+    "created_at": "2024-07-03T11:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Let me know if you have any questions after reading.",
+    "created_at": "2024-07-04T12:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Will do! Thinking of trying out a new recipe tonight.",
+    "created_at": "2024-07-04T12:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Ooh, fun! What are you making?",
+    "created_at": "2024-07-04T12:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Spicy ramen! Been craving it all week.",
+    "created_at": "2024-07-04T12:03:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Sounds delicious! Enjoy!",
+    "created_at": "2024-07-05T13:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Thanks! Hope you have a good evening.",
+    "created_at": "2024-07-05T13:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "You too!",
+    "created_at": "2024-07-05T13:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Happy Friday! Any plans for the long weekend?",
+    "created_at": "2024-07-06T09:30:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Happy Friday! Just some relaxation and maybe catching up on reading.",
+    "created_at": "2024-07-06T09:31:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Sounds perfect. Enjoy your time off!",
+    "created_at": "2024-07-06T09:32:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "You too! Have a great one.",
+    "created_at": "2024-07-07T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Thanks!",
+    "created_at": "2024-07-07T10:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "What's the outlook for next week's sprint?",
+    "created_at": "2024-07-08T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Looking good, we're on track. Just a couple of minor adjustments.",
+    "created_at": "2024-07-08T11:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Excellent! That's what I like to hear.",
+    "created_at": "2024-07-08T11:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Team's been really efficient lately.",
+    "created_at": "2024-07-09T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Definitely. Great work by everyone!",
+    "created_at": "2024-07-09T14:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Couldn't agree more.",
+    "created_at": "2024-07-09T14:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Thinking about upgrading my monitor. Any recommendations?",
+    "created_at": "2024-07-10T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Depends on your budget and what you're using it for. Gaming or work?",
+    "created_at": "2024-07-10T10:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Mainly work, but a bit of casual gaming too.",
+    "created_at": "2024-07-10T10:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "For that, I'd suggest something with good color accuracy and a decent refresh rate. Dell UltraSharps are usually reliable.",
+    "created_at": "2024-07-10T10:03:45Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Good to know! I'll check those out. Thanks for the advice!",
+    "created_at": "2024-07-11T15:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "No problem! Let me know what you decide.",
+    "created_at": "2024-07-11T15:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Will do!",
+    "created_at": "2024-07-11T15:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Just a heads-up, I'll be out for a bit tomorrow morning.",
+    "created_at": "2024-07-12T09:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Okay, thanks for the heads-up! No worries.",
+    "created_at": "2024-07-12T09:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "I'll be back online after lunch.",
+    "created_at": "2024-07-12T09:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Got it. See you then!",
+    "created_at": "2024-07-13T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Morning! Back at my desk.",
+    "created_at": "2024-07-13T13:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Welcome back! Hope everything went well.",
+    "created_at": "2024-07-13T13:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "It did, thanks! Ready to dive into the afternoon.",
+    "created_at": "2024-07-14T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Let's do it!",
+    "created_at": "2024-07-14T11:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Just a reminder about the project deadline next week.",
+    "created_at": "2024-07-15T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Got it, thanks for the reminder! On track here.",
+    "created_at": "2024-07-15T14:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Great! Just wanted to make sure we're all aligned.",
+    "created_at": "2024-07-15T14:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Perfectly aligned!",
+    "created_at": "2024-07-16T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "How was your long weekend?",
+    "created_at": "2024-07-16T10:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Relaxing, thanks! Just what I needed. Yours?",
+    "created_at": "2024-07-16T10:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Pretty good, got some much-needed rest and caught up on chores.",
+    "created_at": "2024-07-17T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Sounds productive!",
+    "created_at": "2024-07-17T11:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Indeed! Ready for the week now.",
+    "created_at": "2024-07-17T11:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Me too. Let's make it a good one.",
+    "created_at": "2024-07-18T12:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Just saw that new software update, looks interesting.",
+    "created_at": "2024-07-18T12:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Oh yeah, I saw the release notes. Some good features in there.",
+    "created_at": "2024-07-18T12:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Definitely. Excited to try out the new debugger.",
+    "created_at": "2024-07-19T13:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Me too! Might save us some headaches.",
+    "created_at": "2024-07-19T13:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "Here's hoping!",
+    "created_at": "2024-07-20T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 3,
+    "text": "Have a great weekend!",
+    "created_at": "2024-07-20T14:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": true,
+    "sender": 1,
+    "text": "You too! Enjoy.",
+    "created_at": "2024-07-21T09:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Thanks!",
+    "created_at": "2024-07-21T09:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "How was your weekend?",
+    "created_at": "2024-07-22T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Pretty good, relaxed a lot. Yours?",
+    "created_at": "2024-07-22T10:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Similar! Got some gardening done.",
+    "created_at": "2024-07-22T10:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Nice! Always satisfying.",
+    "created_at": "2024-07-23T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Indeed. Ready for the week ahead!",
+    "created_at": "2024-07-23T11:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Me too! Let's conquer it.",
+    "created_at": "2024-07-24T12:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Just had an idea for the dashboard layout.",
+    "created_at": "2024-07-24T12:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Oh? Lay it on me.",
+    "created_at": "2024-07-24T12:02:20Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "What if we use a modular grid system? It would be much more flexible.",
+    "created_at": "2024-07-25T13:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "That's a solid idea! I like the flexibility aspect.",
+    "created_at": "2024-07-25T13:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Right? I'll mock something up.",
+    "created_at": "2024-07-26T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Sounds good! Looking forward to seeing it.",
+    "created_at": "2024-07-26T14:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Will send it over by end of day.",
+    "created_at": "2024-07-27T09:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Great, thanks!",
+    "created_at": "2024-07-27T09:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Happy weekend!",
+    "created_at": "2024-07-28T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "You too! Enjoy the break.",
+    "created_at": "2024-07-28T10:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Thanks!",
+    "created_at": "2024-07-29T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Ready for another productive week?",
+    "created_at": "2024-07-29T11:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Absolutely! Let's make it a good one.",
+    "created_at": "2024-07-30T12:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "That's the spirit!",
+    "created_at": "2024-07-30T12:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Just a quick thought on the UI flow.",
+    "created_at": "2024-07-31T13:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Hit me.",
+    "created_at": "2024-07-31T13:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Maybe we should add an intermediate confirmation step for critical actions.",
+    "created_at": "2024-07-31T13:02:30Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Good point. That would improve user experience and prevent accidental clicks.",
+    "created_at": "2024-08-01T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Exactly. I'll add it to the next sprint.",
+    "created_at": "2024-08-01T14:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Perfect! Thanks for thinking ahead.",
+    "created_at": "2024-08-02T15:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "No problem! Always trying to anticipate.",
+    "created_at": "2024-08-02T15:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Appreciate it!",
+    "created_at": "2024-08-03T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Have a great weekend!",
+    "created_at": "2024-08-03T10:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "You too!",
+    "created_at": "2024-08-04T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Back to the grind!",
+    "created_at": "2024-08-04T11:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Indeed! Hope you had a good break.",
+    "created_at": "2024-08-05T12:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "I did, thanks. Feeling refreshed.",
+    "created_at": "2024-08-05T12:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Excellent!",
+    "created_at": "2024-08-06T13:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Just started reading a new book, it's really good.",
+    "created_at": "2024-08-06T13:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Oh? What's it about?",
+    "created_at": "2024-08-07T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "It's a sci-fi novel about parallel universes. Very thought-provoking.",
+    "created_at": "2024-08-07T14:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Sounds right up my alley! What's the title?",
+    "created_at": "2024-08-08T15:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "It's called 'The Multiverse Weaver'. Definitely give it a read.",
+    "created_at": "2024-08-08T15:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Added to my list! Thanks for the recommendation.",
+    "created_at": "2024-08-09T16:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "No problem! Enjoy the journey.",
+    "created_at": "2024-08-09T16:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Thanks! You too, have a great one.",
+    "created_at": "2024-08-10T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "You too!",
+    "created_at": "2024-08-10T10:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "How's the project coming along?",
+    "created_at": "2024-08-11T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Making good progress! Almost done with the integration tests.",
+    "created_at": "2024-08-11T11:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Excellent! That's great news.",
+    "created_at": "2024-08-12T12:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Just need to tie up a few loose ends.",
+    "created_at": "2024-08-12T12:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "You're almost there!",
+    "created_at": "2024-08-13T13:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Fingers crossed for a smooth deployment!",
+    "created_at": "2024-08-13T13:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "It'll be great!",
+    "created_at": "2024-08-14T14:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Hey, quick question about the new API endpoint.",
+    "created_at": "2024-08-14T14:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "What about it?",
+    "created_at": "2024-08-15T15:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Should we send the 'status' field in the request body or as a query parameter?",
+    "created_at": "2024-08-15T15:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Given it's a filter, a query parameter would be more appropriate.",
+    "created_at": "2024-08-16T16:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Agreed, that makes more sense. Thanks!",
+    "created_at": "2024-08-16T16:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "No problem!",
+    "created_at": "2024-08-17T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Have a great weekend!",
+    "created_at": "2024-08-17T10:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "You too!",
+    "created_at": "2024-08-18T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Back to work!",
+    "created_at": "2024-08-18T11:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Ready to tackle the new sprint!",
+    "created_at": "2024-08-19T12:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Let's do it!",
+    "created_at": "2024-08-19T12:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Almost there for the deadline!",
+    "created_at": "2024-08-27T10:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "Indeed! Pushing through.",
+    "created_at": "2024-08-27T10:01:15Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "You got this!",
+    "created_at": "2024-08-28T11:00:00Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 1,
+    "text": "And it's done! Finally.",
+    "created_at": "2024-08-28T11:01:10Z"
+  },
+  {
+    "chat": 1,
+    "read": false,
+    "sender": 3,
+    "text": "Fantastic! Time to celebrate.",
+    "created_at": "2024-08-28T11:02:20Z"
+  }
+]

@@ -1,0 +1,105 @@
+{% load message_tags %}
+
+{% group_messages messages user.last_read_id as grouped_messages %}
+
+
+
+{% for item in grouped_messages %}
+  {% if item.type == 'date' %}
+    <div class="text-center text-gray-400 text-sm my-2">
+      {{ item.label }}
+    </div>
+
+  {% elif item.type == 'label' %}
+    <div class="text-center bg-yellow-100 text-yellow-800 font-semibold rounded px-3 py-1 my-2">
+      {{ item.label }}
+    </div>
+
+  {% elif item.type == 'message' %}
+  {% include "chats/partials/_message_item.html" with msg=item.data %}
+    
+  {% endif %}
+{% endfor %}
+
+
+
+
+
+{% comment %} {% load message_tags %}
+
+{% with prev_date=None %}
+  {% for msg in messages %}
+    {% with msg.created_at.date as current_date %}
+      
+      {# ✅ Show humanized date label when it's the first message or the date changed #}
+      {% if forloop.first or current_date != prev_date %}
+        <div class="text-center text-sm text-gray-500 my-2">
+          {% if current_date == current_time|date:"Y-m-d" %}
+            Today
+          {% elif current_date == current_time|add:"-1 day"|date:"Y-m-d" %}
+            Yesterday
+          {% else %}
+            {{ current_date|date:"F j, Y" }}{{prev_date}}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {# ✅ Show "New messages" badge before first unread message #}
+      {% if msg.id == first_unread_id %}
+        <div class="text-center my-2">
+          <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+            New messages
+          </span>
+        </div>
+      {% endif %}
+
+      {% include "chats/partials/_message_msg.html" with msg=msg %}
+
+      {# ✅ Update prev_date for next iteration #}
+      {% with current_date as prev_date %}{% endwith %}
+    
+    {% endwith %}
+  {% endfor %}
+{% endwith %} {% endcomment %}
+
+{% comment %} <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let prevDate = null;
+
+    document.querySelectorAll('.chat-message').forEach((msgEl) => {
+      const currentDate = msgEl.dataset.date;
+
+      if (currentDate !== prevDate) {
+        const label = document.createElement('div');
+        label.className = 'text-center text-sm text-gray-500 my-2';
+        label.textContent = formatDate(currentDate);  // Custom function
+        msgEl.before(label);
+        prevDate = currentDate;
+      }
+    });
+
+    function formatDate(dateStr) {
+      const today = new Date().toISOString().split('T')[0];
+      const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+
+      if (dateStr === today) return "Today";
+      if (dateStr === yesterday) return "Yesterday";
+
+      const d = new Date(dateStr);
+      return d.toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+  });
+</script> {% endcomment %}
+
+
+
+{% comment %} {% for msg in messages %}
+  {% include "chats/partials/_message_msg.html" %}
+{% empty %}
+  <p class="text-gray-500 text-center">No messages yet.</p>
+{% endfor %}  {% endcomment %}
+

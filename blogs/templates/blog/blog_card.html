@@ -1,0 +1,56 @@
+{% comment %} <a
+  href="{% url 'blogs:blog_detail' blog.slug %}"
+  class="w-full bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+>
+  <div class="p-5">
+
+    <span class="text-sm font-medium text-blue-600 dark:text-blue-400">Web Development</span>
+    
+    <h2 class="mt-2 text-xl font-bold text-slate-800 dark:text-slate-100 hover:text-blue-600 transition-colors">
+      {{blog.title}}
+    </h2>
+    <div class="inline">
+      <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed trim line-clamp-3">{{blog.excerpt}}</p>
+      <span class="text-blue-500 text-sm">Read More...</span>
+    </div>
+    
+    <div class="mt-4 flex items-center justify-between text-sm text-slate-500 dark:text-slate-400"></div>
+    
+  </div>
+</a> {% endcomment %}
+
+{% load static %}
+
+<a href="{% url 'blogs:blog_detail' blog.slug %}" class="max-w-sm bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+  <!-- Blog Image -->
+  <img class="w-full h-48 object-cover" src="{% if blog.cover_image %}{{blog.cover_image.url}}{% else %}{% static 'images/default_cover_image.webp' %}{% endif %}" alt="{{ blog.title }}">
+
+  <!-- Card Content -->
+  <div class="p-4">
+    
+    <!-- Title -->
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3 line-clamp-3 md:line-clamp-2 capitalize">{{ blog.title }}</h2>
+
+    <!-- Tags -->
+    {% if blog.tags.names %}
+      <div class="flex flex-wrap gap-2 mb-2">
+        {% for tag_name in blog.tags.names|slice:":3" %}
+          <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium px-2 py-1 rounded-full">
+            {{ tag_name }}
+          </span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Excerpt / Description -->
+    <div class="flex flex-wrap mb-4">
+      <p class="text-gray-700 dark:text-gray-300 text-sm mr-2 {% if blog.tags.names %} line-clamp-3 md:line-clamp-2 {% else %} line-clamp-3 {% endif %}">
+        {{ blog.excerpt }}
+      </p>
+      <!-- Read More Indicator -->
+      <span class="text-blue-500 dark:text-blue-400 text-sm ">Read More...</span>
+    </div>
+
+  </div>
+</a>
+

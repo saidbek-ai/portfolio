@@ -1,0 +1,175 @@
+{% extends "layout.html" %} 
+{% load static %}
+{% load i18n %}
+
+{% block title %}Latest Articles{% endblock title %}
+
+{% block meta %}
+  <meta name="description" content="Explore the latest tutorials, insights, and articles on web development, programming, technology and marketing. Updated regularly.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog — Latest Articles | Saidbek">
+  <meta property="og:description" content="Explore my latest blog posts on coding, design, and tech trends.">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}" />
+  <meta property="og:site_name" content="Saidbek Khudayberdiev Portfolio" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog — Latest Articles | Saidbek">
+  <meta name="twitter:description" content="Explore the latest tutorials, insights, and articles on web development, programming, technology and marketing. Updated regularly.">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}">
+
+  <meta name="robots" content="index, follow">
+
+{% endblock meta %}
+
+
+{% block content %}
+<section
+  id="projects"
+  class="bg-gray-50 dark:bg-gray-900 py-24 px-6 transition-colors duration-300"
+>
+  <div class="max-w-6xl mx-auto">
+    <h2
+      class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
+    >
+      <span class="text-blue-600">My</span> Blogs
+    </h2>
+
+    <!-- Search Form -->
+    <form method="GET" class="mb-12 max-w-xl mx-auto">
+      <div class="flex">
+        <input
+          type="text"
+          name="q"
+          placeholder="Search blogs..."
+          autocomplete="off"
+          value="{{ query|default_if_none:'' }}"
+          class="w-full px-4 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-1 focus:ring-blue-600"
+        />
+        <button
+          type="submit"
+          class="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700 transition"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+
+    <!-- Blog Grid -->
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {% for blog in page_obj%}
+        <!--Blog card component-->
+        {% include "blog/blog_card.html" with blog=blog %}
+      {% empty %}
+      <p class="text-center text-gray-500 dark:text-gray-400 col-span-full">
+        No blogs yet.
+      </p>
+
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <!-- Outer wrapper centers the pagination and adds top margin -->
+    <div class="flex justify-center mt-8">
+      <!-- nav is semantic for assistive tech; space-x-2 puts gaps between buttons -->
+      <nav class="flex justify-center gap-2 mt-6">
+        {% if page_obj.has_previous %}
+        <a
+          href="?page={{ page_obj.previous_page_number }}"
+          class="px-4 py-2 rounded-xl border flex justify-center items-center"
+        >
+          <!-- Left -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-4 h-4"
+            aria-hidden="true"
+          >
+            <path d="M15 19l-7-7 7-7" />
+          </svg>
+        </a>
+        {% else %}
+        <span
+          class="px-4 py-2 rounded-xl bg-gray-200 dark:bg-gray-800 border flex justify-center items-center opacity-80 cursor-not-allowed"
+        >
+          <!-- Left -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-4 h-4"
+            aria-hidden="true"
+          >
+            <path d="M15 19l-7-7 7-7" />
+          </svg>
+        </span>
+        {% endif %} {% for num in page_obj.paginator.page_range %}
+        <!---->
+        {% if page_obj.number == num %}
+        <span class="px-4 py-2 rounded-xl border bg-blue-600 text-white"
+          >{{ num }}</span
+        >
+        {% else %}
+        <a
+          href="?page={{ num }}"
+          class="px-4 py-2 rounded-xl border hover:bg-gray-100 dark:hover:bg-gray-800"
+          >{{ num }}</a
+        >
+        {% endif %} {% endfor %}
+        <!---->
+        {% if page_obj.has_next %}
+        <a
+          href="?page={{ page_obj.next_page_number }}"
+          class="px-4 py-2 rounded-xl border flex justify-center items-center"
+        >
+          <!--Right-->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-4 h-4"
+            aria-hidden="true"
+          >
+            <path d="M9 5l7 7-7 7" /></svg
+        ></a>
+        {% else %}
+        <span
+          class="px-4 py-2 rounded-xl bg-gray-200 dark:bg-gray-800 border flex justify-center items-center opacity-80 cursor-not-allowed"
+        >
+          <!--Right-->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-4 h-4"
+            aria-hidden="true"
+          >
+            <path d="M9 5l7 7-7 7" /></svg
+        ></span>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

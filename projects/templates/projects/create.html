@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% load form_tags %}
+
+{% block meta %}
+  <meta name="robot" content="noindex, nofollow" />
+{% endblock meta %}
+
+{% block title %}Create Project{% endblock %}
+
+{% block content %}
+<section class="min-h-screen bg-gray-50 dark:bg-gray-900 py-20 px-6">
+  <div class="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-8 text-gray-800 dark:text-white text-center">Create New Project</h1>
+    <form method="POST" enctype="multipart/form-data" class="space-y-6 max-w-5xl flex flex-col justify-between gap-6 mx-auto">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 ">Title</label>
+        {{ form.title|add_class:"mt-1 block w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white py-2 px-4" }}
+        {{ form.title.errors }}
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tech stack</label>
+        {{ form.tech_stack|add_class:"mt-1 block w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white py-2 px-4" }}
+        {{ form.tech_stack.errors }}
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
+        {{ form.description|add_class:"mt-1 block w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white py-2 px-4" }}
+        {{ form.description.errors }}
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Image</label>
+        {{ form.image|add_class:"mt-1 block w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white" }}
+        {{ form.image.errors }}
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Source Code (URL)</label>
+        {{ form.source_code|add_class:"mt-1 block w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white py-2 px-4" }}
+        {{ form.source_code.errors }}
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Live Demo (URL)</label>
+        {{ form.demo_url|add_class:"mt-1 block w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white py-2 px-4" }}
+        {{ form.demo_url.errors }}
+      </div>
+
+      <button
+        type="submit"
+        class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+      >
+        Submit Project
+      </button>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+
+

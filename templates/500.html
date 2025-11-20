@@ -1,0 +1,26 @@
+{% extends "account/base_auth_layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl text-center max-w-md w-full">
+  <h1 class="text-9xl font-extrabold text-red-600 dark:text-red-500 mb-4 animate-pulse">500</h1>
+  
+  <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+      Oops! Something Went Wrong.
+  </h2>
+  
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+      Our server encountered an unexpected error. Don’t worry — it’s not your fault.  
+      Please try again later or return to the homepage.
+  </p>
+  
+  <a href="{% url "home" %}" 
+      class="inline-block px-8 py-4 bg-red-600 text-white font-semibold rounded-lg shadow-md 
+            hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 
+            focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 
+            transition-all hover:scale-105 hover:shadow-lg">
+      Go to Homepage
+  </a>
+</div>
+{% endblock content %}

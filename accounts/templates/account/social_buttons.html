@@ -1,0 +1,71 @@
+{% load socialaccount %}
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <!-- Google Login Button -->
+  <a href="{% provider_login_url 'google' %}"
+     class="flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 hover:scale-110 transition-transform duration-200 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md">
+    <svg class="w-6 h-6" viewBox="0 0 48 48">
+      <path fill="#EA4335" d="M24 9.5c3.94 0 6.62 1.69 8.14 3.11l6.01-6.01C34.89 3.15 29.92 1 24 1 14.61 1 6.52 6.58 2.72 14.25l7.9 6.15C12.12 14.64 17.56 9.5 24 9.5z"/>
+      <path fill="#34A853" d="M46.1 24.5c0-1.58-.15-3.09-.43-4.55H24v9.11h12.48c-.54 2.88-2.15 5.34-4.5 7.01l7.07 5.49C43.81 37.46 46.1 31.48 46.1 24.5z"/>
+      <path fill="#4A90E2" d="M24 48c6.48 0 11.92-2.16 15.9-5.88l-7.07-5.49C30.56 38.47 27.48 39.5 24 39.5c-6.44 0-11.88-5.14-13.38-11.9l-7.9 6.15C6.52 41.42 14.61 48 24 48z"/>
+      <path fill="#FBBC05" d="M10.62 27.6a14.93 14.93 0 0 1 0-7.2l-7.9-6.15A23.92 23.92 0 0 0 0 24c0 3.91.92 7.61 2.72 10.75l7.9-7.15z"/>
+    </svg>
+    <span class="text-gray-700 dark:text-gray-100 font-medium">
+      <span class="md:hidden">Continue with </span><span>Google</span>
+    </span>
+  </a>
+
+  <!-- GitHub Login Button -->
+  <a href="{% provider_login_url 'github' %}"
+     class="flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 hover:scale-110 transition-transform duration-200 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md">
+    <svg class="w-6 h-6 text-gray-800 dark:text-gray-100" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.795-.262.795-.578v-2.233c-3.337.726-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.086-.742.083-.728.083-.728 1.202.086 1.83.618 1.83.618 1.067 1.82 2.802 1.294 3.486.99.107-.769.418-1.293.761-1.594-2.665-.305-5.466-1.334-5.466-5.931 0-1.309.467-2.377 1.233-3.219-.125-.304-.536-1.523.117-3.175 0 0 1.008-.323 3.301 1.23A11.48 11.48 0 0 1 12 5.802a11.49 11.49 0 0 1 3.003.404c2.293-1.553 3.301-1.23 3.301-1.23.653 1.652.243 2.871.118 3.175.766.842 1.232 1.91 1.232 3.219 0 4.609-2.802 5.626-5.479 5.931.43.369.823 1.107.823 2.221v3.293c0 .319.192.693.801.576C20.565 21.797 24 17.303 24 12c0-6.627-5.373-12-12-12z"/>
+    </svg>
+    <span class="text-gray-700 dark:text-gray-100 font-medium flex items-center">
+      <span class="md:hidden">Continue with </span><span>GitHub</span>
+    </span>
+  </a>
+</div>
+
+
+
+<!--Multiple Social Auth buttons-->
+{% comment %} {% get_providers as socialaccount_providers %}
+
+<div class="flex justify-center items-center gap-4 py-3">
+  {% for provider in socialaccount_providers %}
+    <a
+      href="{% provider_login_url provider.id %}"
+      title="Sign in with {{ provider.name }}"
+      class="flex justify-center items-center w-14 h-14 rounded-full border border-gray-300 dark:border-gray-700
+             hover:scale-110 transition-transform duration-200
+             bg-white dark:bg-gray-800 shadow-sm hover:shadow-md"
+    >
+      {% if provider.id == "google" %}
+        <!-- Google -->
+        <svg class="w-6 h-6" viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.94 0 6.62 1.69 8.14 3.11l6.01-6.01C34.89 3.15 29.92 1 24 1 14.61 1 6.52 6.58 2.72 14.25l7.9 6.15C12.12 14.64 17.56 9.5 24 9.5z"/>
+        <path fill="#34A853" d="M46.1 24.5c0-1.58-.15-3.09-.43-4.55H24v9.11h12.48c-.54 2.88-2.15 5.34-4.5 7.01l7.07 5.49C43.81 37.46 46.1 31.48 46.1 24.5z"/>
+        <path fill="#4A90E2" d="M24 48c6.48 0 11.92-2.16 15.9-5.88l-7.07-5.49C30.56 38.47 27.48 39.5 24 39.5c-6.44 0-11.88-5.14-13.38-11.9l-7.9 6.15C6.52 41.42 14.61 48 24 48z"/>
+        <path fill="#FBBC05" d="M10.62 27.6a14.93 14.93 0 0 1 0-7.2l-7.9-6.15A23.92 23.92 0 0 0 0 24c0 3.91.92 7.61 2.72 10.75l7.9-7.15z"/>
+      </svg>
+      {% elif provider.id == "github" %}
+        <!-- GitHub -->
+        <svg class="w-6 h-6 text-gray-800 dark:text-gray-100" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.795-.262.795-.578v-2.233c-3.337.726-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.757-1.333-1.757-1.086-.742.083-.728.083-.728 1.202.086 1.83.618 1.83.618 1.067 1.82 2.802 1.294 3.486.99.107-.769.418-1.293.761-1.594-2.665-.305-5.466-1.334-5.466-5.931 0-1.309.467-2.377 1.233-3.219-.125-.304-.536-1.523.117-3.175 0 0 1.008-.323 3.301 1.23A11.48 11.48 0 0 1 12 5.802a11.49 11.49 0 0 1 3.003.404c2.293-1.553 3.301-1.23 3.301-1.23.653 1.652.243 2.871.118 3.175.766.842 1.232 1.91 1.232 3.219 0 4.609-2.802 5.626-5.479 5.931.43.369.823 1.107.823 2.221v3.293c0 .319.192.693.801.576C20.565 21.797 24 17.303 24 12c0-6.627-5.373-12-12-12z"/>
+        </svg>
+      {% elif provider.id == "telegram" %}
+        <!-- Telegram (fixed SVG) -->
+        <svg class="w-6 h-6 text-sky-500 dark:text-sky-400" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9.999 15.168l-.39 5.492c.557 0 .799-.239 1.091-.525l2.615-2.491 5.422 3.965c.993.55 1.702.263 1.95-.914L24 4.513c.302-1.259-.435-1.754-1.408-1.453L1.082 9.514c-1.212.379-1.191 1.187-.218 1.505l5.582 1.742 12.964-8.18L9.999 15.168z"/>
+        </svg>
+      {% elif provider.id == "twitter" or provider.id == "x" or provider.id == "twitter_oauth2" %}
+      
+        <!-- X (Twitter) -->
+        <svg class="w-6 h-6 text-gray-900 dark:text-gray-100" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.88L4.111 22.25H0.808l7.106-8.26L0.244 2.25h3.308l5.772 7.353 3.528-4.704L18.244 2.25zm-2.883 17.575l.43.344L4.855 3.98H3.84L16.294 19.825h-1.433z"/>
+        </svg>
+      {% endif %}
+    </a>
+  {% endfor %}
+</div> {% endcomment %}

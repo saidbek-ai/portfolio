@@ -1,0 +1,77 @@
+{% extends "layout.html" %} {% block title %}{{ project.title }} {% endblock %}
+{% load static %}
+{% load i18n %}
+
+
+{% block meta %}
+  <!-- Primary Meta Tags -->
+  <meta name="description" content="{{ project.rendered_description|striptags|truncatechars:160 }}" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{{ request.build_absolute_uri|cut:'?'|cut:'#' }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ project.title }}" />
+  <meta property="og:description" content="{{ project.rendered_description|striptags|truncatechars:160 }}" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:site_name" content="Saidbek Khudayberdiev Portfolio" />
+
+  {% if project.cover_image %}
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ project.cover_image.url }}" />
+  {% else %}
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}" />
+  {% endif %}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ project.title }}" />
+  <meta name="twitter:description" content="{{ project.rendered_description|striptags|truncatechars:160 }}" />
+
+  {% if project.cover_image %}
+    <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ project.cover_image.url }}" />
+  {% else %}
+    <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}" />
+  {% endif %}
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{ project.title|escapejs }}",
+      "description": "{{ project.rendered_description|striptags|truncatechars:160|escapejs }}",
+      "image": "{% if project.cover_image %}{{ request.scheme }}://{{ request.get_host }}{{ project.cover_image.url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}{% endif %}",
+      "author": {
+        "@type": "Person",
+        "name": "Saidbek Khudayberdiev"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Saidbek Khudayberdiev Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ request.build_absolute_uri }}"
+      }
+    }
+  </script>
+{% endblock meta %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto p-6 prose prose-slate dark:prose-invert">
+  {% if project.cover_image %}
+    <img
+      src="{{ project.cover_image.url }}"
+      alt="{{ project.title }}"
+      class="rounded-lg my-6 w-full md:h-72 object-cover"
+      loading="lazy"
+    />
+  {% endif %}
+  <h1 class="text-2xl sm:text-3xl lg:text-4xl">{{ project.title }}</h1>
+  {{ project.rendered_description|safe }}
+</section>
+{% endblock %}

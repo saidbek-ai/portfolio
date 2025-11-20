@@ -1,0 +1,393 @@
+<!--This is very crucial for future patch-->
+  {% comment %} <div class="grid grid-cols-1 gap-8">
+    <!-- My Projects Card (Updated to include dates) -->
+    <div
+      class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-colors duration-500"
+    >
+      <h2
+        class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100 border-b pb-3 border-gray-200 dark:border-gray-700 flex justify-between items-center"
+      >
+        My Projects
+        <a
+          href="#"
+          title="add new projects"
+          class="py-2 px-4 sm:px-5 bg-blue-600 text-white text-base font-medium rounded-lg hover:bg-blue-700 transition shadow-lg"
+        >
+          <svg
+            id="toggleIcon"
+            class="w-6 h-6 transition-transform duration-300 sm:hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4v16m-8-8h16"
+            ></path>
+          </svg>
+          <span class="hidden sm:inline"> Add New Project </span>
+        </a>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project Card 1: Project Alpha (Status: Active) -->
+        <div
+          class="p-6 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300"
+        >
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            Project Alpha 🚀
+          </h3>
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">
+              Full-Stack E-commerce
+            </p>
+            <!-- Status Badge: Active -->
+            <span
+              class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+            >
+              Active
+            </span>
+          </div>
+
+          <!-- Date Info -->
+          <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <div class="flex items-center space-x-2">
+              <!-- Start Date -->
+              <svg
+                class="date-icon w-4 h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 2v4" />
+                <path d="M16 2v4" />
+                <rect width="18" height="18" x="3" y="4" rx="2" />
+                <path d="M3 10h18" />
+                <path d="M8 14h.01" />
+                <path d="M12 14h.01" />
+                <path d="M16 14h.01" />
+                <path d="M8 18h.01" />
+                <path d="M12 18h.01" />
+                <path d="M16 18h.01" />
+              </svg>
+              <span class="font-semibold text-gray-700 dark:text-gray-200"
+                >Started:</span
+              >
+              <span>Mar 01, 2024</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <!-- Estimated End Date -->
+              <svg
+                class="w-4 h-4 text-orange-500"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M10 21h3" />
+                <path d="M12 17v4" />
+                <path d="M17.8 13.9a1 1 0 1 0-1.6-1.87L15 13" />
+                <path d="M18.8 17.5a1 1 0 1 0-1.75-.4l-2-3.5" />
+                <path
+                  d="M14.5 2.5a2.41 2.41 0 0 0-3.34 0L8.5 4.5a2.41 2.41 0 0 0 0 3.34L9.82 9.17a2 2 0 0 1 .41 1.02V17h4v-6.81a2 2 0 0 1 .41-1.02l1.32-1.33a2.41 2.41 0 0 0 0-3.34Z"
+                />
+              </svg>
+              <span class="font-semibold text-gray-700 dark:text-gray-200"
+                >Est. End:</span
+              >
+              <span>May 30, 2024</span>
+            </div>
+          </div>
+
+          <a
+            href="#"
+            class="mt-4 inline-block text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition"
+            >View Project Details &rarr;</a
+          >
+        </div>
+
+        <!-- Project Card 2: Task Manager App (Status: Completed) -->
+        <div
+          class="p-6 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300"
+        >
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            Task Manager App ✅
+          </h3>
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">
+              Vue.js & Firebase MVP
+            </p>
+            <!-- Status Badge: Completed -->
+            <span
+              class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
+            >
+              Completed
+            </span>
+          </div>
+
+          <!-- Date Info -->
+          <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <div class="flex items-center space-x-2">
+              <!-- Start Date -->
+              <svg
+                class="date-icon w-4 h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 2v4" />
+                <path d="M16 2v4" />
+                <rect width="18" height="18" x="3" y="4" rx="2" />
+                <path d="M3 10h18" />
+                <path d="M8 14h.01" />
+                <path d="M12 14h.01" />
+                <path d="M16 14h.01" />
+                <path d="M8 18h.01" />
+                <path d="M12 18h.01" />
+                <path d="M16 18h.01" />
+              </svg>
+              <span class="font-semibold text-gray-700 dark:text-gray-200"
+                >Started:</span
+              >
+              <span>Jan 15, 2024</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <!-- Completion Date (using green icon for completed projects) -->
+              <svg
+                class="w-4 h-4 text-green-500"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M10 21h3" />
+                <path d="M12 17v4" />
+                <path d="M17.8 13.9a1 1 0 1 0-1.6-1.87L15 13" />
+                <path d="M18.8 17.5a1 1 0 1 0-1.75-.4l-2-3.5" />
+                <path
+                  d="M14.5 2.5a2.41 2.41 0 0 0-3.34 0L8.5 4.5a2.41 2.41 0 0 0 0 3.34L9.82 9.17a2 2 0 0 1 .41 1.02V17h4v-6.81a2 2 0 0 1 .41-1.02l1.32-1.33a2.41 2.41 0 0 0 0-3.34Z"
+                />
+              </svg>
+              <span class="font-semibold text-gray-700 dark:text-gray-200"
+                >Completed:</span
+              >
+              <span>Feb 28, 2024</span>
+            </div>
+          </div>
+
+          <a
+            href="#"
+            class="mt-4 inline-block text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition"
+            >View Project Details &rarr;</a
+          >
+        </div>
+
+        <!-- Project Card 3: Portfolio Website (Status: MVP-Ready) -->
+        <div
+          class="p-6 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300"
+        >
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            Portfolio Website 🖼️
+          </h3>
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">
+              Static Site Showcase
+            </p>
+            <!-- Status Badge: MVP-Ready -->
+            <span
+              class="px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
+            >
+              MVP-Ready
+            </span>
+          </div>
+
+          <!-- Date Info -->
+          <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <div class="flex items-center space-x-2">
+              <!-- Start Date -->
+              <svg
+                class="date-icon w-4 h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 2v4" />
+                <path d="M16 2v4" />
+                <rect width="18" height="18" x="3" y="4" rx="2" />
+                <path d="M3 10h18" />
+                <path d="M8 14h.01" />
+                <path d="M12 14h.01" />
+                <path d="M16 14h.01" />
+                <path d="M8 18h.01" />
+                <path d="M12 18h.01" />
+                <path d="M16 18h.01" />
+              </svg>
+              <span class="font-semibold text-gray-700 dark:text-gray-200"
+                >Started:</span
+              >
+              <span>Apr 10, 2024</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <!-- Estimated End Date (using orange icon for ongoing/pending projects) -->
+              <svg
+                class="w-4 h-4 text-orange-500"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M10 21h3" />
+                <path d="M12 17v4" />
+                <path d="M17.8 13.9a1 1 0 1 0-1.6-1.87L15 13" />
+                <path d="M18.8 17.5a1 1 0 1 0-1.75-.4l-2-3.5" />
+                <path
+                  d="M14.5 2.5a2.41 2.41 0 0 0-3.34 0L8.5 4.5a2.41 2.41 0 0 0 0 3.34L9.82 9.17a2 2 0 0 1 .41 1.02V17h4v-6.81a2 2 0 0 1 .41-1.02l1.32-1.33a2.41 2.41 0 0 0 0-3.34Z"
+                />
+              </svg>
+              <span class="font-semibold text-gray-700 dark:text-gray-200"
+                >Est. End:</span
+              >
+              <span>May 15, 2024</span>
+            </div>
+          </div>
+
+          <a
+            href="#"
+            class="mt-4 inline-block text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition"
+            >View Project Details &rarr;</a
+          >
+        </div>
+
+        <!-- Project Card 4: Pending Project (Status: Pending) -->
+        <div
+          class="p-6 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300"
+        >
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            Client Blog Site 📝
+          </h3>
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">
+              Content Management
+            </p>
+            <!-- Status Badge: Pending -->
+            <span
+              class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
+            >
+              Pending
+            </span>
+          </div>
+
+          <!-- Date Info -->
+          <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <div class="flex items-center space-x-2">
+              <!-- Start Date -->
+              <svg
+                class="date-icon w-4 h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 2v4" />
+                <path d="M16 2v4" />
+                <rect width="18" height="18" x="3" y="4" rx="2" />
+                <path d="M3 10h18" />
+                <path d="M8 14h.01" />
+                <path d="M12 14h.01" />
+                <path d="M16 14h.01" />
+                <path d="M8 18h.01" />
+                <path d="M12 18h.01" />
+                <path d="M16 18h.01" />
+              </svg>
+              <span class="font-semibold text-gray-700 dark:text-gray-200"
+                >Started:</span
+              >
+              <span>May 20, 2024</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <!-- Estimated End Date -->
+              <svg
+                class="w-4 h-4 text-orange-500"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M10 21h3" />
+                <path d="M12 17v4" />
+                <path d="M17.8 13.9a1 1 0 1 0-1.6-1.87L15 13" />
+                <path d="M18.8 17.5a1 1 0 1 0-1.75-.4l-2-3.5" />
+                <path
+                  d="M14.5 2.5a2.41 2.41 0 0 0-3.34 0L8.5 4.5a2.41 2.41 0 0 0 0 3.34L9.82 9.17a2 2 0 0 1 .41 1.02V17h4v-6.81a2 2 0 0 1 .41-1.02l1.32-1.33a2.41 2.41 0 0 0 0-3.34Z"
+                />
+              </svg>
+              <span class="font-semibold text-gray-700 dark:text-gray-200"
+                >Est. End:</span
+              >
+              <span>Jul 10, 2024</span>
+            </div>
+          </div>
+
+          <a
+            href="#"
+            class="mt-4 inline-block text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-500 font-medium transition"
+            >View Project Details &rarr;</a
+          >
+        </div>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a
+          href="#"
+          class="px-5 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition shadow-lg"
+        >
+          Add New Project
+        </a>
+      </div>
+    </div>
+  </div> {% endcomment %}

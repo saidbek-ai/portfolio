@@ -1,0 +1,275 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Support Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f4f7f9; }
+        .chat-container { height: 70vh; max-height: 800px; }
+        .message { max-width: 80%; padding: 10px; border-radius: 15px; margin-bottom: 8px; }
+        .user-message { background-color: #3b82f6; color: white; margin-left: auto; border-top-right-radius: 5px; }
+        .agent-message { background-color: #e5e7eb; color: #1f2937; margin-right: auto; border-top-left-radius: 5px; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div id="app-container" class="bg-white shadow-2xl rounded-xl w-full max-w-xl p-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Anonymous Support</h1>
+
+        <!-- Initial State: Token Lookup / New Ticket -->
+        <div id="initial-state" class="space-y-4">
+            <p id="saved-token-message" class="text-sm text-green-600 font-semibold hidden"></p>
+            
+            <button id="new-ticket-button" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-md">
+                Start New Anonymous Conversation
+            </button>
+            
+            <div class="text-center py-2 text-gray-500">— OR —</div>
+            
+            <div class="space-y-2">
+                <label for="token-input" class="block text-sm font-medium text-gray-700">Continue Existing Chat (Enter Key)</label>
+                <div class="flex space-x-2">
+                    <input type="text" id="token-input" placeholder="e.g., 1a2b3c4d-5e6f..." class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-gray-900">
+                    <button id="lookup-button" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold p-3 rounded-lg transition duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </button>
+                </div>
+                <p id="error-message" class="text-sm text-red-600 hidden"></p>
+            </div>
+        </div>
+
+        <!-- Chat State: Conversation Active -->
+        <div id="chat-state" class="hidden space-y-4">
+            <div id="token-display" class="bg-yellow-50 text-yellow-800 p-3 rounded-lg text-sm flex items-center justify-between">
+                <span class="font-semibold mr-2">Your Key:</span> 
+                <code id="current-token" class="truncate font-mono"></code>
+                <button onclick="copyToken()" class="ml-3 text-yellow-600 hover:text-yellow-700 transition duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v4a1 1 0 001 1h4a1 1 0 001-1V7m0 0a1 1 0 001-1V3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 001 1h4zm0 0l-8 8m8-8v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4"></path></svg>
+                </button>
+            </div>
+            
+            <!-- Message Display Area -->
+            <div id="message-container" class="chat-container overflow-y-auto border border-gray-200 p-4 rounded-lg bg-gray-50 flex flex-col space-y-2">
+                <div class="text-center text-sm text-gray-500 p-2">
+                    Connecting to support...
+                </div>
+            </div>
+
+            <!-- Message Input Area -->
+            <div class="flex space-x-3">
+                <input type="text" id="chat-message-input" placeholder="Type your message..." class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-gray-900" disabled>
+                <button id="chat-message-submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-5 rounded-lg transition duration-200" disabled>
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- CONSTANTS ---
+        const WS_PROTOCOL = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+        const APP_HOST = window.location.host;
+        const TOKEN_STORAGE_KEY = 'anonTicketToken';
+
+        // --- DOM ELEMENTS ---
+        const initialStateDiv = document.getElementById('initial-state');
+        const chatStateDiv = document.getElementById('chat-state');
+        const tokenInput = document.getElementById('token-input');
+        const currentTokenDisplay = document.getElementById('current-token');
+        const savedTokenMessage = document.getElementById('saved-token-message');
+        const errorMessage = document.getElementById('error-message');
+        const messageContainer = document.getElementById('message-container');
+        const chatInput = document.getElementById('chat-message-input');
+        const chatSubmit = document.getElementById('chat-message-submit');
+        const newTicketButton = document.getElementById('new-ticket-button');
+        const lookupButton = document.getElementById('lookup-button');
+
+        let chatSocket = null;
+        let currentToken = null;
+
+        // --- UTILITY FUNCTIONS ---
+
+        function displayError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+            setTimeout(() => errorMessage.classList.add('hidden'), 5000);
+        }
+
+        function copyToken() {
+            const tokenToCopy = document.getElementById('current-token').textContent;
+            
+            // Use execCommand for broader compatibility in sandboxed environments
+            const tempInput = document.createElement('textarea');
+            tempInput.value = tokenToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                document.execCommand('copy');
+                alertBox.show('Copied to clipboard!');
+            } catch (err) {
+                console.error('Could not copy text: ', err);
+                alertBox.show('Failed to copy. Please copy the key manually.');
+            } finally {
+                document.body.removeChild(tempInput);
+            }
+        }
+        
+        // Custom Alert/Message Box (replacing alert())
+        const alertBox = {
+            element: null,
+            init() {
+                this.element = document.createElement('div');
+                this.element.id = 'custom-alert';
+                this.element.className = 'fixed top-4 right-4 bg-gray-800 text-white p-3 rounded-lg shadow-xl opacity-0 transition-opacity duration-300 z-50';
+                document.body.appendChild(this.element);
+            },
+            show(message) {
+                if (!this.element) this.init();
+                this.element.textContent = message;
+                this.element.style.opacity = '1';
+                setTimeout(() => {
+                    this.element.style.opacity = '0';
+                }, 3000);
+            }
+        };
+
+
+        function addMessage(message, sender) {
+            const isUser = sender === 'user';
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'agent-message'}`;
+            messageDiv.textContent = message;
+            
+            messageContainer.appendChild(messageDiv);
+            messageContainer.scrollTop = messageContainer.scrollHeight; // Auto-scroll to bottom
+        }
+
+        // --- CORE CHAT LOGIC ---
+
+        function connectWebSocket(token) {
+            currentToken = token;
+            currentTokenDisplay.textContent = token;
+            
+            // Display the chat UI
+            initialStateDiv.classList.add('hidden');
+            chatStateDiv.classList.remove('hidden');
+            messageContainer.innerHTML = '<div class="text-center text-sm text-gray-500 p-2">Attempting to connect...</div>';
+
+            const wsPath = `ws/support/${token}/`;
+            chatSocket = new WebSocket(
+                WS_PROTOCOL + APP_HOST + '/' + wsPath
+            );
+
+            chatSocket.onopen = function(e) {
+                console.log("WebSocket connected.");
+                messageContainer.innerHTML = ''; // Clear connecting message
+                addMessage(`You are connected to support. Your key is: ${token}. SAVE IT!`, 'system');
+                chatInput.disabled = false;
+                chatSubmit.disabled = false;
+                chatInput.focus();
+            };
+
+            chatSocket.onmessage = function(e) {
+                const data = JSON.parse(e.data);
+                addMessage(data.message, data.sender);
+            };
+
+            chatSocket.onclose = function(e) {
+                console.error('WebSocket closed unexpectedly:', e);
+                addMessage('Connection lost. Please refresh or check your key.', 'system');
+                chatInput.disabled = true;
+                chatSubmit.disabled = true;
+                chatSocket = null;
+            };
+
+            chatSocket.onerror = function(e) {
+                console.error('WebSocket error:', e);
+                displayError('Connection error. Check console for details.');
+            };
+        }
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message && chatSocket && chatSocket.readyState === WebSocket.OPEN) {
+                chatSocket.send(JSON.stringify({
+                    'message': message
+                }));
+                chatInput.value = ''; // Clear input after sending
+            } else if (!message) {
+                alertBox.show("Please enter a message.");
+            } else {
+                alertBox.show("Connection not ready. Please wait or refresh.");
+            }
+        }
+
+        // --- INITIALIZATION AND EVENT LISTENERS ---
+
+        // 1. Initial State Check (Local Storage)
+        window.onload = function() {
+            const savedToken = localStorage.getItem(TOKEN_STORAGE_KEY);
+            if (savedToken) {
+                tokenInput.value = savedToken;
+                savedTokenMessage.textContent = `A conversation key was found locally. Enter it above or start a new chat.`;
+                savedTokenMessage.classList.remove('hidden');
+            }
+        };
+        
+        // 2. Button Handlers
+        chatSubmit.onclick = sendMessage;
+        chatInput.onkeyup = function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        };
+
+        // For a real application, 'new-ticket' requires an AJAX call 
+        // to a Django view to generate the token and create the ticket object, 
+        // then the view returns the new token.
+        newTicketButton.onclick = async function() {
+            newTicketButton.disabled = true;
+            newTicketButton.textContent = 'Generating...';
+            errorMessage.classList.add('hidden');
+
+            try {
+                // *** MOCK IMPLEMENTATION FOR NEW TICKET ***
+                // REPLACE THIS MOCK WITH A REAL DJANGO FETCH TO CREATE AnonymousTicket
+                // AND RETURN THE GENERATED UUID.
+                // Example Django View: 
+                //    ticket = AnonymousTicket.objects.create() 
+                //    return JsonResponse({'token': str(ticket.token)})
+                const response = await fetch('/api/support/new_ticket', { method: 'POST' }); 
+                const data = await response.json();
+                const newToken = data.token; // Assume Django returns {'token': '...' }
+
+                // Connect and save
+                connectWebSocket(newToken);
+                localStorage.setItem(TOKEN_STORAGE_KEY, newToken);
+                alertBox.show("New chat started! Remember to save your key.");
+
+            } catch (error) {
+                console.error("New ticket creation failed:", error);
+                displayError("Could not start a new chat. Check the server connection.");
+            } finally {
+                newTicketButton.disabled = false;
+                newTicketButton.textContent = 'Start New Anonymous Conversation';
+            }
+        };
+
+        lookupButton.onclick = function() {
+            const token = tokenInput.value.trim();
+            if (token) {
+                // In a real system, you might add an AJAX call here to ensure the 
+                // token is valid in the DB before connecting the WebSocket.
+                // For simplicity, we trust the WebSocket connection check.
+                localStorage.setItem(TOKEN_STORAGE_KEY, token);
+                connectWebSocket(token);
+            } else {
+                displayError("Please enter your conversation key.");
+            }
+        };
+    </script>
+</body>
+</html>

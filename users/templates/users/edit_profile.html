@@ -1,0 +1,218 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Edit Profile{% endblock title %}
+
+{% block meta %}
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+
+  <meta name="robot" content="noindex, nofollow">
+
+{% endblock meta %}
+
+{% block content %}
+<div class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex items-center justify-center p-4 sm:p-6 transition-colors duration-500">
+
+  {% if form.non_field_errors %}
+    <div class="bg-red-50 border border-red-200 text-red-700 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400 px-4 py-3 rounded-lg mb-4">
+      <ul class="list-disc pl-5">
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+<!-- Profile Form -->
+  <form
+    method="POST"
+    action="{% url 'users:edit_profile' %}"
+    enctype="multipart/form-data"
+    class="w-full max-w-3xl bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 py-8 px-6 sm:px-8 space-y-6 transition-all duration-300"
+  >
+  {% csrf_token %}
+
+    <!-- Profile Picture -->
+    <div class="flex flex-col items-center gap-4">
+      <div class="relative">
+        {% if form.image.errors %}
+          <div class="mt-1 text-xs font-medium text-red-600 dark:text-red-400 space-y-0">
+            {% for error in form.image.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+        <img
+          src=""
+          alt="Profile Picture"
+          id="image_preview"
+          class="hidden w-28 h-28 rounded-full object-cover border-4 border-gray-200 dark:border-gray-800"
+        />
+
+        <div id="no-avatar-frame" class="hidden w-28 h-28 flex justify-center items-center rounded-full object-cover border-4 border-gray-200 dark:border-gray-800">
+          <span id="user-initials" class="text-4xl font-semibold text-white -ml-1"></span>
+        </div>
+
+        <label
+          for="image_input"
+          class="absolute bottom-0 right-0 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full cursor-pointer shadow-md"
+          title="Change profile picture"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15.232 5.232l3.536 3.536m-2.036-1.5A2.25 2.25 0 0117.25 9.75L9 18H6v-3L14.25 6.75z"
+            />
+          </svg>
+        </label>
+        <input 
+          type="file"
+          name="{{form.image.name}}" 
+          id="image_input" 
+          accept="image/*"  
+          class="hidden" 
+        />
+      </div>
+
+      <h2 class="text-lg font-semibold">Your Profile Photo</h2>
+    </div>
+
+    <!-- Input Fields -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="{{form.first_name.id_for_label}}" class="block text-sm font-medium mb-2 flex items-center gap-1.5">First Name <span class="text-rose-500 text-2xl -my-1.5">*</span></label>
+        <input
+          type="text"
+          id="{{form.first_name.id_for_label}}"
+          name="{{form.first_name.name}}"
+          value="{{form.first_name.value}}"
+          placeholder="John"
+          class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+        />
+        {% if form.first_name.errors %}
+          <div class="mt-1 text-xs font-medium text-red-600 dark:text-red-400 space-y-0">
+            {% for error in form.first_name.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="{{form.last_name.id_for_label}}" class="block text-sm font-medium mb-2 flex items-center gap-1.5">Last Name <span class="text-rose-500 text-2xl -my-1.5">*</span></label>
+        <input
+          type="text"
+          id="{{form.last_name.id_for_label}}"
+          name="{{form.last_name.name}}"
+          value="{{form.last_name.value}}"
+          placeholder="Doe"
+          class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+        />
+        {% if form.last_name.errors %}
+          <div class="mt-1 text-xs font-medium text-red-600 dark:text-red-400 space-y-0">
+            {% for error in form.last_name.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div>
+      <label for="{{form.username.id_for_label}}" class="block text-sm font-medium mb-2 flex items-center gap-1.5">Username <span class="text-rose-500 text-2xl -my-1.5">*</span></label>
+      <input
+        type="text"
+        id="{{form.username.id_for_label}}"
+        name="{{form.username.name}}"
+        value="{{form.username.value}}"
+        placeholder="johndoe"
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+      />
+      {% if form.username.errors %}
+        <div class="mt-1 text-xs font-medium text-red-600 dark:text-red-400 space-y-0">
+          {% for error in form.username.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div>
+      <label for="{{form.organisation.id_for_label}}" class="block text-sm font-medium mb-2">Organisation</label>
+      <input
+        type="text"
+        id="{{form.organisation.id_for_label}}"
+        name="{{form.organisation.name}}"
+        value="{{form.organisation.value}}"
+        placeholder="(optional) Google.inc"
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+      />
+      {% if form.organisation.errors %}
+        <div class="mt-1 text-xs font-medium text-red-600 dark:text-red-400 space-y-0">
+          {% for error in form.organisation.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div>
+      <label for="{{form.bio.id_for_label}}" class="block text-sm font-medium mb-2">Bio</label>
+      <textarea
+        rows="4"
+        id="{{form.bio.id_for_label}}"
+        name="{{form.bio.name}}"
+        
+        placeholder="Tell something about yourself...(optional)"
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none transition resize-none"
+      >{{form.bio.value}}</textarea>
+      {% if form.bio.errors %}
+        <div class="mt-1 text-xs font-medium text-red-600 dark:text-red-400 space-y-0">
+          {% for error in form.bio.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center sm:justify-end gap-4 pt-4 w-full">
+      <button
+        type="button"
+        onClick="window.location.href = '{% url 'users:user_profile' %}'"
+        class="px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-md transition"
+      >
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock content %}
+
+{% block script %}
+
+  {% comment %} These lines of code provides server state variables {% endcomment %}
+  <script>
+    const fName = '{{user.first_name | escapejs}}';
+    const lName = '{{user.last_name | escapejs}}';
+    let userImageUrl = "{% if user.image %}{{ user.image.url|escapejs }}{% endif %}" || "";
+
+    
+  </script>
+  <script type="module" src="{% static "js/edit_profile.js" %}"></script>
+{% endblock script %}

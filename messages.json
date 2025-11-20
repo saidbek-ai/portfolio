@@ -1,0 +1,602 @@
+[
+  {
+    "sender": 2,
+    "text": "Will I be able to manage content myself?",
+    "created_at": "2025-07-08T12:00:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Let\u2019s schedule a demo early next week.",
+    "created_at": "2025-07-08T12:01:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can we integrate Stripe for payments?",
+    "created_at": "2025-07-08T12:02:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Thank you! I\u2019ll start working on it today.",
+    "created_at": "2025-07-08T12:03:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T12:04:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Thank you! I\u2019ll start working on it today.",
+    "created_at": "2025-07-08T12:05:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "How much would the full project cost approximately?",
+    "created_at": "2025-07-08T12:06:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Based on the scope, I\u2019d estimate 2\u20133 weeks for MVP.",
+    "created_at": "2025-07-08T12:07:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Will I be able to manage content myself?",
+    "created_at": "2025-07-08T12:08:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Hi! I'd be happy to help. Could you tell me more about the project requirements?",
+    "created_at": "2025-07-08T12:09:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Let me know if you need anything else.",
+    "created_at": "2025-07-08T12:10:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Got it. We can use React and Django for this.",
+    "created_at": "2025-07-08T12:11:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I have a wireframe if that helps.",
+    "created_at": "2025-07-08T12:12:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Please share any design inspiration you have.",
+    "created_at": "2025-07-08T12:13:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can we integrate Stripe for payments?",
+    "created_at": "2025-07-08T12:14:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Got it. We can use React and Django for this.",
+    "created_at": "2025-07-08T12:15:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like the UI to be simple and clean.",
+    "created_at": "2025-07-08T12:16:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "I\u2019ll have the wireframes converted to UI by Wednesday.",
+    "created_at": "2025-07-08T12:17:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T12:18:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "I\u2019ll have the wireframes converted to UI by Wednesday.",
+    "created_at": "2025-07-08T12:19:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like to see a prototype by the end of next week.",
+    "created_at": "2025-07-08T12:20:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I can take care of deployment as well.",
+    "created_at": "2025-07-08T12:21:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like to see a prototype by the end of next week.",
+    "created_at": "2025-07-08T12:22:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I can take care of deployment as well.",
+    "created_at": "2025-07-08T12:23:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Let me know if you need anything else.",
+    "created_at": "2025-07-08T12:24:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Hi! I'd be happy to help. Could you tell me more about the project requirements?",
+    "created_at": "2025-07-08T12:25:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like the UI to be simple and clean.",
+    "created_at": "2025-07-08T12:26:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I can take care of deployment as well.",
+    "created_at": "2025-07-08T12:27:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Hi, I\u2019m looking for someone to build a web app for my small business.",
+    "created_at": "2025-07-08T12:28:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Let\u2019s schedule a demo early next week.",
+    "created_at": "2025-07-08T12:29:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T12:30:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Based on the scope, I\u2019d estimate 2\u20133 weeks for MVP.",
+    "created_at": "2025-07-08T12:31:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T12:32:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "I\u2019ll have the wireframes converted to UI by Wednesday.",
+    "created_at": "2025-07-08T12:33:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "How much would the full project cost approximately?",
+    "created_at": "2025-07-08T12:34:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Sure, Stripe integration is straightforward.",
+    "created_at": "2025-07-08T12:35:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like the UI to be simple and clean.",
+    "created_at": "2025-07-08T12:36:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Thank you! I\u2019ll start working on it today.",
+    "created_at": "2025-07-08T12:37:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like to see a prototype by the end of next week.",
+    "created_at": "2025-07-08T12:38:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I can take care of deployment as well.",
+    "created_at": "2025-07-08T12:39:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like to see a prototype by the end of next week.",
+    "created_at": "2025-07-08T12:40:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I can take care of deployment as well.",
+    "created_at": "2025-07-08T12:41:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can we integrate Stripe for payments?",
+    "created_at": "2025-07-08T12:42:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I\u2019ll build a simple admin dashboard for content management.",
+    "created_at": "2025-07-08T12:43:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T12:44:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Let\u2019s schedule a demo early next week.",
+    "created_at": "2025-07-08T12:45:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Hi, I\u2019m looking for someone to build a web app for my small business.",
+    "created_at": "2025-07-08T12:46:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I\u2019ll build a simple admin dashboard for content management.",
+    "created_at": "2025-07-08T12:47:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I have a wireframe if that helps.",
+    "created_at": "2025-07-08T12:48:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Got it. We can use React and Django for this.",
+    "created_at": "2025-07-08T12:49:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T12:50:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Let\u2019s schedule a demo early next week.",
+    "created_at": "2025-07-08T12:51:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like to see a prototype by the end of next week.",
+    "created_at": "2025-07-08T12:52:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Got it. We can use React and Django for this.",
+    "created_at": "2025-07-08T12:53:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T12:54:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I can take care of deployment as well.",
+    "created_at": "2025-07-08T12:55:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Let me know if you need anything else.",
+    "created_at": "2025-07-08T12:56:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Thank you! I\u2019ll start working on it today.",
+    "created_at": "2025-07-08T12:57:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like the UI to be simple and clean.",
+    "created_at": "2025-07-08T12:58:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Please share any design inspiration you have.",
+    "created_at": "2025-07-08T12:59:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Hi, I\u2019m looking for someone to build a web app for my small business.",
+    "created_at": "2025-07-08T13:00:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I\u2019ll build a simple admin dashboard for content management.",
+    "created_at": "2025-07-08T13:01:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "This looks promising. Let's move forward.",
+    "created_at": "2025-07-08T13:02:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I\u2019ll build a simple admin dashboard for content management.",
+    "created_at": "2025-07-08T13:03:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I\u2019d like to see a prototype by the end of next week.",
+    "created_at": "2025-07-08T13:04:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I\u2019ll build a simple admin dashboard for content management.",
+    "created_at": "2025-07-08T13:05:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "How much would the full project cost approximately?",
+    "created_at": "2025-07-08T13:06:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Sure, Stripe integration is straightforward.",
+    "created_at": "2025-07-08T13:07:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T13:08:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Thank you! I\u2019ll start working on it today.",
+    "created_at": "2025-07-08T13:09:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Will I be able to manage content myself?",
+    "created_at": "2025-07-08T13:10:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I can take care of deployment as well.",
+    "created_at": "2025-07-08T13:11:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T13:12:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Please share any design inspiration you have.",
+    "created_at": "2025-07-08T13:13:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "How much would the full project cost approximately?",
+    "created_at": "2025-07-08T13:14:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Got it. We can use React and Django for this.",
+    "created_at": "2025-07-08T13:15:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Let me know if you need anything else.",
+    "created_at": "2025-07-08T13:16:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Based on the scope, I\u2019d estimate 2\u20133 weeks for MVP.",
+    "created_at": "2025-07-08T13:17:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T13:18:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I\u2019ll build a simple admin dashboard for content management.",
+    "created_at": "2025-07-08T13:19:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Hi, I\u2019m looking for someone to build a web app for my small business.",
+    "created_at": "2025-07-08T13:20:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Sure, Stripe integration is straightforward.",
+    "created_at": "2025-07-08T13:21:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "How much would the full project cost approximately?",
+    "created_at": "2025-07-08T13:22:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Sure, Stripe integration is straightforward.",
+    "created_at": "2025-07-08T13:23:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can we integrate Stripe for payments?",
+    "created_at": "2025-07-08T13:24:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Based on the scope, I\u2019d estimate 2\u20133 weeks for MVP.",
+    "created_at": "2025-07-08T13:25:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can you also help with hosting setup?",
+    "created_at": "2025-07-08T13:26:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Sure, Stripe integration is straightforward.",
+    "created_at": "2025-07-08T13:27:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "How much would the full project cost approximately?",
+    "created_at": "2025-07-08T13:28:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Based on the scope, I\u2019d estimate 2\u20133 weeks for MVP.",
+    "created_at": "2025-07-08T13:29:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Can we integrate Stripe for payments?",
+    "created_at": "2025-07-08T13:30:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Based on the scope, I\u2019d estimate 2\u20133 weeks for MVP.",
+    "created_at": "2025-07-08T13:31:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "I have a wireframe if that helps.",
+    "created_at": "2025-07-08T13:32:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I can take care of deployment as well.",
+    "created_at": "2025-07-08T13:33:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Will I be able to manage content myself?",
+    "created_at": "2025-07-08T13:34:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Got it. We can use React and Django for this.",
+    "created_at": "2025-07-08T13:35:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Let me know if you need anything else.",
+    "created_at": "2025-07-08T13:36:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Please share any design inspiration you have.",
+    "created_at": "2025-07-08T13:37:00",
+    "chat": 3
+  },
+  {
+    "sender": 2,
+    "text": "Will I be able to manage content myself?",
+    "created_at": "2025-07-08T13:38:00",
+    "chat": 3
+  },
+  {
+    "sender": 1,
+    "text": "Yes, I\u2019ll build a simple admin dashboard for content management.",
+    "created_at": "2025-07-08T13:39:00",
+    "chat": 3
+  }
+]
