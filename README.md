@@ -15,20 +15,25 @@ This project demonstrates my ability to build scalable, real-time, and productio
 ## 🚀 Features
 
 ### 🌐 Portfolio  
-- Dynamic project listing  
+- Dynamic project & blog post listing  
 - About me section  
-- Contact form API  
-- Admin dashboard for managing content  
-- SEO-friendly structure  
+- Hybrid chat app powered by React and tailwindcss
+- Customized Admin dashboard for managing content  
+- SEO-friendly structure
+  
 
 ### 💬 Real-Time Chat System  
 - WebSocket-based real-time messaging  
 - One-to-many CRM-style chat  
 - Two UIs:
-  - **Regular users** → message list + input  
+  - **Regular users** → header + message list + input  
   - **Staff/admins** → user list + chat window  
 - Redis-powered channel layer  
-- Secure authentication for chat rooms  
+- Secure authentication for chat rooms
+- Advanced message decoration
+- Read/Sent/Received messages state
+- Typing/Online/Offline user state
+- Caching & Virtualization for performance
 
 ### 🧩 Tech Stack
 
@@ -45,9 +50,17 @@ This project demonstrates my ability to build scalable, real-time, and productio
 - TailwindCSS  
 - WebSocket client
 
-
+#### Chat UI
+- Reactjs
+- Redux Toolkit
+- Tanstack query (React-query)
+- Virtuoso
+- Tailwindcss
+- react-lucide
 ---
-##💬 Real-Time Chat Architecture
+
+## 💬 Real-Time Chat Architecture
+
 ```vbnet
 Client (React)
    ⬇ WebSocket
@@ -65,12 +78,12 @@ Client (React)
 ✔ Async chat consumers
 ✔ Authenticated WebSocket connections
 
-##🛠️ Future Improvements
--File & image sharing
--Typing indicators
--Voice messages
--Web push notifications
--AI-powered chat assistant
+## 🛠️ Future Improvements
+- File & image sharing
+- Typing indicators
+- Voice messages
+- Web push notifications
+- AI-powered chat assistant
 
 
 ## About Me
